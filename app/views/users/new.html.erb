@@ -1,5 +1,6 @@
-<div class="container">
-    <h2 class="text-center"> Novo Usuário</h2>
+<div class="bbb">
+<div class="container cc">
+    <h2 class="text-center text-light"> Novo Usuário</h2>
     <%= form_with model: @user, url: :new_user, method: :post do |form| %>
     
     <div class="form-group">
@@ -20,6 +21,7 @@
         <%= form.password_field :password, class: 'form-control' %>
     </div>
 
-    <%= form.submit "Cadastrar usuário", class: 'btn btn-outline-primary' %>
+    <%= form.submit "Cadastrar usuário", class: 'btn btn-outline-info btn-lg' %>
   <% end %>
+</div>
 </div>
