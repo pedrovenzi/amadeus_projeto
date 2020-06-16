@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_16_010725) do
+ActiveRecord::Schema.define(version: 2020_06_16_013629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "albums", force: :cascade do |t|
+    t.string "name"
+    t.bigint "artist_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_albums_on_artist_id"
+  end
 
   create_table "artists", force: :cascade do |t|
     t.bigint "user_id"
@@ -35,6 +43,16 @@ ActiveRecord::Schema.define(version: 2020_06_16_010725) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "songs", force: :cascade do |t|
+    t.string "name"
+    t.boolean "explicit"
+    t.bigint "album_id"
+    t.string "genre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["album_id"], name: "index_songs_on_album_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.bigint "role_id", null: false
@@ -47,7 +65,9 @@ ActiveRecord::Schema.define(version: 2020_06_16_010725) do
     t.index ["role_id"], name: "index_users_on_role_id"
   end
 
+  add_foreign_key "albums", "artists"
   add_foreign_key "artists", "users"
   add_foreign_key "listeners", "users"
+  add_foreign_key "songs", "albums"
   add_foreign_key "users", "roles"
 end

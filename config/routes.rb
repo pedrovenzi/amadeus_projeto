@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "application#homepage"
+  resources :songs
+  resources :albums
 
   scope 'users' do
     get 'novo_usuario', to: 'users#new', as: :new_user

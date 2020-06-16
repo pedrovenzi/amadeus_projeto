@@ -1,0 +1,8 @@
+<h2>NAME: <%= @song.name %></h2>
+<h4>Explicit: <%= @song.explicit %></h4>
+<h4>Album: "<%= @song.album.name %>"</h4>
+<h4>Genre: "<%= @song.genre %>"</h4>
+
+<%= button_to "All Songs", songs_path, method: :get %>
+<%= button_to "Edit Song", edit_song_path(@song), method: :get %>
+<%= button_to 'Remove Song', song_path(@song), method: 'delete', data: { confirm: 'Are you sure?' } %>
