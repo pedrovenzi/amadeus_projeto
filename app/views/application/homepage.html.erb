@@ -1,2 +1,8 @@
 <img src="https://wallpapermemory.com/uploads/799/firewatch-wallpaper-full-hd-1920x1080-467987.jpg">
 <h1> Homepage do site </h1>
+<% if current_user %>
+    <h1> Email: <%= current_user.email %></h1>
+    <h1> name: <%= current_user.name %></h1>
+<% else %>
+    <h1> Usúario não logado </h1>
+<% end %>

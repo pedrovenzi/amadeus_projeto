@@ -4,8 +4,14 @@
         <button class="navbar-toggler navbar-toggler-right text-secondary" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fa fa-bars"></i></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link text-secondary" href="albums">Albums</a></li>
+                <% if current_user %>
+                    <li class="nav-item nav-link active"><%= link_to "Logout", logout_path, method: :delete%></li>
+                <% else %>
+                    <li class="nav-item nav-link active"><%= link_to "Cadastrar", new_user_path, class: 'nav-link' %></li>
+                    <li class="nav-item nav-link active"><%= link_to "Logar", login_path, class: 'nav-link' %></li>
+                <% end %>
             </ul>
         </div>
     </div>
 </nav>
+        
