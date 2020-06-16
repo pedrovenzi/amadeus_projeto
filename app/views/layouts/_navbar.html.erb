@@ -6,6 +6,7 @@
             <ul class="navbar-nav ml-auto">
                 <% if current_user %>
                     <li class="nav-item nav-link active"><%= link_to "Logout", logout_path, method: :delete%></li>
+                    <li class="nav-item nav-link active"><%= link_to "Albums", albums_path, class: 'nav-link' %></li>
                 <% else %>
                     <li class="nav-item nav-link active"><%= link_to "Cadastrar", new_user_path, class: 'nav-link' %></li>
                     <li class="nav-item nav-link active"><%= link_to "Logar", login_path, class: 'nav-link' %></li>
