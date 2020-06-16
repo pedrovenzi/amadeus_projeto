@@ -2,6 +2,7 @@
 <%= form_for @album do |f| %>
     <p>Enter Album's Name: <%= f.text_field :name, placeholder: "album ... " %></p>
     <p>Enter Artist's Name: <%= f.text_field :artist_id, placeholder: "artist ... " %></p>
-
+    <p>Enter Album's Foto: <%= f.file_field:photo %></p>
+    
     <%= f.submit %>
 <% end %>

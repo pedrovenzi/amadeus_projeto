@@ -67,10 +67,6 @@ class AlbumsController < ApplicationController
     # ADD IN A PRIVATE METHOD FOR ALBUM_PARAMS 
     private
         def album_params
-            params.require(:album).permit(:name, :artist_id)
-        end
-
-        def current_album
-            @album = Album.find(params[:id])
+            params.require(:album).permit(:name, :artist_id, :photo)
         end
 end

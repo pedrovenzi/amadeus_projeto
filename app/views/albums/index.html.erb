@@ -5,10 +5,15 @@
 <table>
   <% @albums.each do |album| %>
     <tr>
+      <% if album.photo.attached? %>
+        <td><%= image_tag album.photo, class: 'card-img-top card-album', alt: 'Foto do album' %></td>
+      <% else %>
+        <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQzkgiLkxtQFxJmZ6uq33CO-1dms_ROo1xl17wRXLs3JgBlQ-Wq&usqp=CAU" class="card-img-top card-album" alt="Foto padrão de album"></td>
+      <% end %>
       <td><%= link_to album.name, album_path(album) %></td>
       <td><%= album.artist.user.name %></td>
       <td><%= button_to 'Edit', edit_album_path(album), method: 'get'%></td>
-      <td><%= button_to 'Remove', album_path(album), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+      <td><%= button_to 'Remove', album_path(album), method: 'delete', data: { confirm: 'Você tme certeza?' } %></td>
   <% end %>
 </table>
 <p> <%= link_to "Add a NewAlbum", new_album_path %> </p>
