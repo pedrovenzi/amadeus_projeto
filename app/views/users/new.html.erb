@@ -8,10 +8,14 @@
         <%= form.text_field :name, class: 'form-control' %>
     </div>
     <!-- fazer select tag para ficar mais bonito -->
-    <div class="form-group">
+    <%
+=begin%>
+ <div class="form-group">
         <p>Qual categoria voce se encaixa?</p>
         <%= form.text_field :role_id, class: 'form-control' %>
-    </div>
+    </div> 
+<%
+=end%>
     <div class="form-group">
         <%= form.label :email %>
         <%= form.email_field :email, class: 'form-control' %>
@@ -19,6 +23,12 @@
     <div class="form-group">
         <%= form.label :password %>
         <%= form.password_field :password, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+        <%= form.label "Tipo de usuário", class: "control-label" %>
+        <div class="controls">
+            <%= form.select(:role_id, options_for_select([['Artista',1],['Ouvinte',2]])) %>
+        </div>
     </div>
 
     <%= form.submit "Cadastrar usuário", class: 'btn btn-outline-info btn-lg' %>
