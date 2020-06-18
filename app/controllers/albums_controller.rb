@@ -5,7 +5,9 @@ class AlbumsController < ApplicationController
   
     ##### SHOW #####
     def index
-        @albums = Album.all
+        @current_user = User.find(session["user_id"])
+        @artist = @current_user.artist
+        @albums = Album.where(artist_id: @artist)
     end
 
     def show
