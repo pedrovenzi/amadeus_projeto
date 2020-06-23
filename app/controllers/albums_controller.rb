@@ -1,8 +1,13 @@
 class AlbumsController < ApplicationController
     
+    ##### Autenticação #####
+    before_action :require_login
+
     ##### SHOW #####
     def index
-        @albums = Album.all
+        @current_user = User.find(session["user_id"])
+        @artist = @current_user.artist
+        @albums = Album.where(artist_id: @artist)
     end
 
     def show
@@ -68,5 +73,12 @@ class AlbumsController < ApplicationController
     private
         def album_params
             params.require(:album).permit(:name, :artist_id, :photo)
+        end
+        
+        def require_login
+            unless logged_in?
+                flash[:error] = "Você precisa estar logado"
+                redirect_to "/auth/login"
+            end
         end
 end
