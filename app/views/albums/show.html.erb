@@ -1,7 +1,8 @@
-<h2>NAME: <%= @album.name %></h2>
+<h2 class="pt-5">NAME: <%= @album.name %></h2>
 <h4>Artist: "<%= @album.artist.user.name %>"</h4>
 <h4>id: "<%= @album.id %>"</h4>
 
+<%= button_to "Musicas do Album", songs_path, method: :get %>
 <%= button_to "All Albums", albums_path, method: :get %>
 <%= button_to "Edit Album", edit_album_path(@album), method: :get %>
 <%= button_to 'Remove Album', album_path(@album), method: 'delete', data: { confirm: 'Are you sure?' } %>
