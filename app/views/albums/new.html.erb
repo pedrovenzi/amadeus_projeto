@@ -1,8 +1,9 @@
-<h3>Create an Album</h3>
-<%= form_for @album do |f| %>
-    <p>Enter Album's Name: <%= f.text_field :name, placeholder: "album ... " %></p>
-    <p>Enter Artist's Name: <%= f.text_field :artist_id, placeholder: "artist ... " %></p>
-    <p>Enter Album's Foto: <%= f.file_field:photo %></p>
-    
-    <%= f.submit %>
-<% end %>
+<div class="criarAlbum">
+    <h1 class="text-light font-weight-bold">Create an Album</h1>
+    <%= form_for @album do |f| %>
+        <p><h2 class="text-light font-weight-bold">Enter Album's Name: <%= f.text_field :name, placeholder: "album ... " %></h2></p>
+        <p><h2 class="text-light font-weight-bold">Enter Artist's Name: <%= f.text_field :artist_id, placeholder: "artist ... " %></h2></p>
+        <p><h2 class="text-light font-weight-bold">Enter Album's Foto: <%= f.file_field:photo %></h2></p>
+        <%= f.submit 'Create Album', :class => 'button button1'%>
+    <% end %>
+</div>
