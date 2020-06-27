@@ -6,6 +6,7 @@
 <table>
   <% @songs.each do |song| %>
     <tr>
+        <td><div id="song-<%= song.id %>"><i class="fa fa-heart-o p-1"></i></div></td>
       <td><%= link_to song.name, song_path(song) %></td>
       <td><%= link_to song.album.name, album_path(song.album) %></td>
       <td><%= button_to 'Edit', edit_song_path(song), method: 'get'%></td>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "application#homepage"
   resources :songs
   resources :albums
+  resources :favoritesongs
 
   scope 'users' do
     get 'novo_usuario', to: 'users#new', as: :new_user
