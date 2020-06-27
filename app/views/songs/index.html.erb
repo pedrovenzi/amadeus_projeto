@@ -1,9 +1,7 @@
+<div class="criarMusica">
 <p id="notice"><%= flash[:notice] %></p>
 
-<h1> Songs </h1>
-
-<p class="pt-5"> <%= link_to "Add a New Song", new_song_path %> </p>
-<p> <%= link_to "Go to Albums", albums_path %> </p>
+<h1 class="fonteh1"> Escute suas músicas preferidas onde quiser. </h1>
 
 <table>
   <% @songs.each do |song| %>
@@ -16,3 +14,6 @@
     </tr>
   <% end %>
 </table>
+<p><h2><%= link_to "Add a New Song", new_song_path, style: 'color:#FFFFFF;' %></h2></p>
+<p><h2><%= link_to "Go to Albums", albums_path, style: 'color:#FFFFFF;' %></h2></p>
+</div>
