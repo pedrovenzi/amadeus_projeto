@@ -15,10 +15,14 @@ class SongsController < ApplicationController
     ###### CREATE #####
     def new
         @song= Song.new
+        @albums = Album.all
+        @genres = Genre.all
     end
     
     def create
         @song = Song.new(song_params)
+        @albums = Album.all
+        @genres = Genre.all
         
         begin
             @song.save!
@@ -34,10 +38,14 @@ class SongsController < ApplicationController
     ##### UPDATE #####
     def edit
         @song = Song.find(params[:id])
+        @albums = Album.all
+        @genres = Genre.all
     end
     
     def update
         @song = Song.find(params[:id])
+        @albums = Album.all
+        @genres = Genre.all
     
         begin
             @song.update!(song_params)
@@ -53,6 +61,9 @@ class SongsController < ApplicationController
     ##### DELETE #####
     def destroy
         @song = Song.find(params[:id])
+        @albums = Album.all
+        @genres = Genre.all
+
         begin
             @song.destroy!
             flash[:notice] = "Musica #{@song.name} deletada com sucesso"
