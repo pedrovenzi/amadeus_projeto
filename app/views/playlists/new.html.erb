@@ -1,0 +1,9 @@
+<div class="criarAlbum">
+    <h1 class="text-light font-weight-bold">Criar nova Playlist</h1>
+    <%= form_for @playlist do |play| %>
+        <p><h2 class="text-light font-weight-bold">Nome da playlist: <%= play.text_field :name, placeholder: "nome ... " %></h2></p>
+        <p><h2 class="text-light font-weight-bold">Id do Listener  : <%= play.text_field :listener_id, placeholder: "1" %></h2></p>
+
+        <%= play.submit 'Create Album', :class => 'button button1 '%>
+    <% end %>
+</div>

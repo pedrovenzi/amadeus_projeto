@@ -7,7 +7,7 @@ class FavoritesongsController < ApplicationController
     def index
         @current_user = User.find(session["user_id"])
         @listener = @current_user.listener
-        @favorite = FavoriteSong.where(listener_id: @listener)
+        @favorites = FavoriteSong.where(listener_id: @listener)
         @song = Song.all
     end
 

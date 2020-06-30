@@ -1,0 +1,18 @@
+<h2>Nome    : <%= @playlist.name %></h2>
+<h4>Artista : <%= @playlist.listener.user.name %></h4>
+<h4>id      : <%= @playlist.id %></h4>
+
+<h2> Musicas </h2>
+<%= button_to "Registrar nova musica", new_songplaylist_path, method: :get %>
+
+ <ul>
+    <%= @playlist.songplaylist.each do |songplaylist| %>
+        <li><%= songplaylist.song.name %></li>
+        <%= button_to "Apagar da lista", songplaylist_path(songplaylist), method: :delete %>
+    <% end %>
+</ul>    
+
+
+<%= button_to "Todas playlist", playlists_path, method: :get %>
+<%= button_to "Editar playlist", edit_playlist_path(@playlist), method: :get %>
+<%= button_to 'Apagar playlist', playlist_path(@playlist), method: 'delete', data: { confirm: 'Você tem certeza?' } %>

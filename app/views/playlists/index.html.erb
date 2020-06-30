@@ -1,0 +1,17 @@
+
+<div class="backgroundarrumado pt-5">
+<p id="notice" class="pt-5"><%= flash[:notice] %></p>
+  <table>
+    <% @playlists.each do |playlist| %>
+      <tr>
+        <td><%= link_to playlist.name, playlist_path(playlist) %></td>
+        <td><%= playlist.listener.user.name %></td>
+        <td><%= button_to 'Editar', edit_playlist_path(playlist), method: 'get'%></td>
+        <td><%= button_to 'Remover', playlist_path(playlist), method: 'delete', data: { confirm: 'Você tme certeza?' } %></td>
+    <% end %>
+  </table>
+    <div class="organizar">
+      <h1 class="text-light font-weight-bold">Monte suas próprias playlist.</h1>
+      <p><h2> <%= link_to "Nova Playlist", new_playlist_path, style: 'color:#FFFFFF;' %> </h2></p>
+    </div>
+</div>

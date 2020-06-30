@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :songs
   resources :albums
   resources :favoritesongs
+  resources :songplaylists, only: [:new, :create, :destroy]
+  resources :playlists
 
   scope 'users' do
     get 'novo_usuario', to: 'users#new', as: :new_user

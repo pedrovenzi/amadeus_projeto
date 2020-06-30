@@ -1,7 +1,9 @@
-<h1> Favorite Songs </h1>
+<%
+=begin%>
+ <h1> Minhas Playlists </h1>
 
 <table>
-  <% @favorites.each do |favorito| %>
+  <% @favorite.each do |favorito| %>
     <tr>
       <td><%= favorito.song.name %></td>
       <td><%= button_to 'Remove', favoritesong_path(favorito), method: 'delete' %></td>
@@ -9,6 +11,6 @@
       
     </tr>
   <% end %>
-</table>
-<!--
-  <i class="fa fa-heart p-1"></i>
+</table> 
+<%
+=end%>
