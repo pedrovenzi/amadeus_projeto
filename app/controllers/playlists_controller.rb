@@ -45,7 +45,7 @@ class PlaylistsController < ApplicationController
             puts exc
             flash[:notice] = exc
         ensure
-            redirect_to playlist_path
+            redirect_to playlists_path
         end
     end
 

@@ -23,7 +23,7 @@ class SongplaylistsController < ApplicationController
     ##### DELETE #####
     def destroy
         @songplaylist = SongPlaylist.find(params[:id])
-        @playlist = songplaylist.playlist
+        @playlist = @songplaylist.playlist
         @songplaylist.destroy
 
         redirect_to playlists_path
