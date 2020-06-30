@@ -2,8 +2,8 @@
 
 <%= form_for @songplaylist do |sp| %>
     <%= sp.label :song_id %>
-    <%= sp. collection_select :song_id, Song.all, :id, :name %>
+    <%= sp.collection_select :song_id, Song.all, :id, :name %>
     <%= sp.label :playlist_id %>
-    <%= sp.collection_select :playlist, Playlist.all, :id, :name %>
+    <%= sp.collection_select :playlist_id, Playlist.all, :id, :name %>
     <%= sp.submit %>
 <% end %>

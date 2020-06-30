@@ -5,9 +5,6 @@ class SongplaylistsController < ApplicationController
 
     ##### SHOW #####
     def index
-        # @current_user = User.find(session["user_id"])
-        # @listener = @current_user.listener
-        # @songplaylists = SongPlaylist.where(listener_id: @listener)
     end
 
     ###### CREATE #####
@@ -16,7 +13,7 @@ class SongplaylistsController < ApplicationController
     end
 
     def create
-        @songplaylist = SongPlaylist.create(songplaylistt_params)
+        @songplaylist = SongPlaylist.create(songplaylist_params)
         redirect_to playlist_path(@songplaylist.playlist)
     end
 
@@ -26,13 +23,13 @@ class SongplaylistsController < ApplicationController
         @playlist = @songplaylist.playlist
         @songplaylist.destroy
 
-        redirect_to playlists_path
+        redirect_to playlist_path(@playlist)
     end
 
     # ADD IN A PRIVATE METHOD FOR SONGPLAYLIST_PARAMS
     private
         def songplaylist_params
-            params.require(:songplaylist).permit(:song_id, :listener_id)
+            params.require(:songplaylist).permit(:song_id, :playlist_id)
         end
 
         def require_login

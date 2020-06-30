@@ -4,17 +4,13 @@
 
 <h2> Musicas </h2>
 <%= button_to "Registrar nova musica", new_songplaylist_path, method: :get %>
-
- <%
-=begin%>
+<!-- não sei se essa rota de cima está correta -->
  <ul>
-    <%= @playlist.listener.each do |sp| %>
+    <%= @playlist.song_playlists.each do |sp| %>
         <li><%= sp.song.name %></li>
         <%= button_to "Apagar da lista", songplaylist_path(sp), method: :delete %>
     <% end %>
-</ul>     
-<%
-=end%>
+</ul>      
 
 
 <%= button_to "Todas playlist", playlists_path, method: :get %>
