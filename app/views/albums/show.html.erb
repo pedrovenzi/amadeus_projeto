@@ -2,6 +2,17 @@
 <h4>Artist: "<%= @album.artist.user.name %>"</h4>
 <h4>id: "<%= @album.id %>"</h4>
 
+<h2> Musicas </h2>
+<%= button_to "Registrar nova musica", new_song_path, method: :get %>
+
+<ul>
+    <%= Song.where(album_id:@album.id).each do |sp| %>
+        <li><%= sp.name %></li>
+        <%= button_to "Editar Música", edit_song_path(sp), method: 'get' %>
+        <%= button_to "Apagar música", song_path(sp), method: 'delete', data: { confirm: 'Você tem certeza que quer apagar essa música?'} %>
+    <% end %>
+</ul>   
+
 <%= button_to "All Albums", albums_path, method: :get %>
 <%= button_to "Edit Album", edit_album_path(@album), method: :get %>
 <%= button_to 'Remove Album', album_path(@album), method: 'delete', data: { confirm: 'Are you sure?' } %>
