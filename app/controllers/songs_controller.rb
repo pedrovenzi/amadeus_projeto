@@ -2,6 +2,7 @@ class SongsController < ApplicationController
     
     ##### Autenticação #####
     before_action :require_login
+    before_action :artist_login
     
     ##### SHOW #####
     def index
@@ -68,12 +69,5 @@ class SongsController < ApplicationController
     private
         def song_params
             params.require(:song).permit(:name, :explicit, :album_id, :genre, :song_file)
-        end
-
-        def require_login
-            unless logged_in?
-                flash[:error] = "Você precisa estar logado"
-                redirect_to "/auth/login"
-            end
         end
 end

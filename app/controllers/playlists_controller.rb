@@ -2,6 +2,7 @@ class PlaylistsController < ApplicationController
 
     ##### Autenticação #####
     before_action :require_login
+    before_action :listener_login
 
     ##### SHOW #####
     def index
@@ -67,12 +68,5 @@ class PlaylistsController < ApplicationController
     private
         def playlist_params
             params.require(:playlist).permit(:name, :listener_id)
-        end
-
-        def require_login
-            unless logged_in?
-                flash[:error] = "Você precisa estar logado"
-                redirect_to "/auth/login"
-            end
         end
 end

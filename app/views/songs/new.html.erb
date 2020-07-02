@@ -5,6 +5,7 @@
         <p><h2 class="text-light font-weight-bold">Explicit         : <%= f.check_box :explicit %></h2></p>
         <p><h2 class="text-light font-weight-bold">Album_id         : <%= f.number_field :album_id, placeholder: "album name" %></h2></p>
         <p><h2 class="text-light font-weight-bold">Genre            : <%= f.text_field :genre, placeholder: "genre name" %></h2></p>
+        <p><h2 class="text-light font-weight-bold">Musica           : <%= f.file_field :song_file %></h2></p>
 
         <%= f.submit'Create Music', :class => 'button button1' %>
     <% end %>

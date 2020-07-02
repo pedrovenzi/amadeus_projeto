@@ -2,6 +2,7 @@ class SongplaylistsController < ApplicationController
 
     ##### Autenticação #####
     before_action :require_login
+    before_action :listener_login
 
     ##### SHOW #####
     def index
@@ -30,11 +31,5 @@ class SongplaylistsController < ApplicationController
     private
         def songplaylist_params
             params.require(:songplaylist).permit(:song_id, :playlist_id)
-        end
-
-        def require_login
-            unless logged_in?
-                redirect_to "/auth/login"
-            end
         end
 end
