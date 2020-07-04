@@ -68,6 +68,6 @@ class SongsController < ApplicationController
     # ADD IN A PRIVATE METHOD FOR SONG_PARAMS
     private
         def song_params
-            params.require(:song).permit(:name, :explicit, :album_id, :genre, :song_file)
+            params.require(:song).permit(:name, :explicit, :album_id, :genre, :file)
         end
 end
