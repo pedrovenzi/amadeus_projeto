@@ -15,7 +15,7 @@ class SongplaylistsController < ApplicationController
 
     def create
         @songplaylist = SongPlaylist.create(songplaylist_params)
-        redirect_to playlist_path(@songplaylist.playlist)
+        redirect_to playlists_path
     end
 
     ##### DELETE #####
@@ -30,6 +30,6 @@ class SongplaylistsController < ApplicationController
     # ADD IN A PRIVATE METHOD FOR SONGPLAYLIST_PARAMS
     private
         def songplaylist_params
-            params.require(:songplaylist).permit(:song_id, :playlist_id)
+            params.permit(:song_id, :playlist_id)
         end
 end

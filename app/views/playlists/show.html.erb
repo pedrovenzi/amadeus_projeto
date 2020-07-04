@@ -6,7 +6,7 @@
 <%= button_to "Registrar nova musica", new_songplaylist_path, method: :get %>
 <!-- não sei se essa rota de cima está correta -->
  <ul>
-    <%= @playlist.song_playlists.each do |sp| %>
+    <% @playlist.song_playlists.each do |sp| %>
         <li><%= sp.song.name %></li>
         <%= button_to "Apagar da lista", songplaylist_path(sp), method: :delete %>
     <% end %>

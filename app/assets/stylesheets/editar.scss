@@ -1,0 +1,19 @@
+.editar{
+    width: 100%;
+    height: 100vh;
+    background-position: center top;
+	background-size:cover;
+    background-image: url("https://mocah.org/uploads/posts/4513161-artwork-nature-landscape-mountains-trees-birds-firewatch.jpg");
+
+}
+.editor{
+    padding-top: 150px;
+}
+
+.image-upload > input
+{
+   display: none;
+}
+.image-upload > label{
+  cursor:pointer;
+}

@@ -7,10 +7,10 @@
   <% @songs.each do |song| %>
     <tr>
         <td><div id="song-<%= song.id %>"><i class="fa fa-heart-o p-1"></i></div></td>
-      <td><%= link_to song.name, song_path(song) %></td>
-      <td><%= link_to song.album.name, album_path(song.album) %></td>
-      <td><%= button_to 'Edit', edit_song_path(song), method: 'get'%></td>
-      <td><%= button_to 'Remove', song_path(song), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to song.name, song_path(song), style: 'color:black;' %></td>
+      <td><%= link_to song.album.name, album_path(song.album), style: 'color:black;' %></td>
+      <td><%= button_to 'Edit', edit_song_path(song), method: 'get' , :class=> "btn btn-outline-dark btn-block text-light" %></td>
+      <td><%= button_to 'Remove', song_path(song), method: 'delete', data: { confirm: 'Are you sure?' }, :class=> "btn btn-outline-dark btn-block text-light"  %></td>
     </tr>
   <% end %>
 </table>
