@@ -60,6 +60,12 @@ ActiveRecord::Schema.define(version: 2020_06_30_023936) do
     t.index ["song_id"], name: "index_favorite_songs_on_song_id"
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "listeners", force: :cascade do |t|
     t.bigint "user_id"
     t.datetime "created_at", null: false

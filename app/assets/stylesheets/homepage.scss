@@ -1,4 +1,29 @@
-.aaa{
-    background-color: black;
-    height: 1000px;
+
+/* CAROUSEL */
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  width: 70%;
+  margin: auto;
 }
+
+.item {
+  width: 100%;
+  height: 100vh;
+  min-height: 400px;
+}
+
+.carousel-indicators li {
+  width: 80px !important;
+  height: 4px !important;
+  border-radius: 0px !important;
+  border-left-width: 0px !important;
+  border-right-width: 0px !important;
+  margin: 0px !important;
+}
+
+.carousel-caption h5 {
+  text-transform: uppercase;
+}
+
+/* OUTROS */
