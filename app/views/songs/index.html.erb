@@ -6,7 +6,7 @@
 <table>
   <% @songs.each do |song| %>
     <tr>
-        <td><div id="song-<%= song.id %>"><i class="fa fa-heart-o p-1"></i></div></td>
+      <td><%= link_to "<i class='fa fa-heart-o'></i>".html_safe, favoritesongs_path(favorite:{song_id: song.id, listener_id: current_user.listener.id}), method: :post, style: 'color:black;'  %></td>
       <td><%= link_to song.name, song_path(song), style: 'color:black;' %></td>
       <td><%= link_to song.album.name, album_path(song.album), style: 'color:black;' %></td>
       <td><%= button_to 'Edit', edit_song_path(song), method: 'get' , :class=> "btn btn-outline-dark btn-block text-light" %></td>

@@ -32,17 +32,17 @@
                         <th scope="col" class="col-3">Nome</th>
                         <th scope="col" class="col-4">Play</th>
                         <th scope="col" class="col-1">Editar</th>
-                        <th scope="col" class="col-2">Apagar</th>
+                        <th scope="col" class="col-1">Apagar</th>
                     </tr>
                 </thead>
                 <tbody>
                 <% Song.where(album_id:@album.id).each do |sp| %>
-                    <tr>
-                        <td scope="row"><i class="fa fa-music" aria-hidden="true"></i></td>
-                        <td><%= sp.name %></td>
-                        <td> <%= audio_tag (url_for(sp.file)), controls: true %></td>
-                        <td><%= button_to "Editar Música", edit_song_path(sp), method: 'get', class: 'btn btn-outline-light' %></td>
-                        <td><%= button_to "Apagar música", song_path(sp), method: 'delete', data: { confirm: 'Você tem certeza que quer apagar essa música?'}, class: 'btn btn-outline-light' %></td>
+                    <tr class="">
+                        <td scope="row"><i class="fa fa-music col-1" aria-hidden="true"></i></td>
+                        <td  class="col-3"><%= sp.name %></td>
+                        <td  class="col-4"> <%= audio_tag (url_for(sp.file)), controls: true, class: 'song' %></td>
+                        <td  class="col-1"><%= link_to "<i class='fa fa-pencil fa-lg'></i>".html_safe, edit_song_path(sp), method: :get, class: 'btn btn-outline-light icon' %></td>
+                        <td  class="col-1"><%= link_to "<i class='fa fa-trash-o fa-lg'></i>".html_safe, song_path(sp), method: 'delete', data: { confirm: 'Você tem certeza que quer apagar essa música?'}, class: 'btn btn-outline-light icon' %></td>
                     </tr>
                 <% end %>
             </tbody>
@@ -50,20 +50,3 @@
     </div>
     <div class="espaco1"></div>
 </div>
-
-<%
-=begin%>
- <i class="fa fa-pencil" aria-hidden="true"></i>
-<i class="fa fa-trash-o" aria-hidden="true"></i> 
-<%
-=end%>
-
-<%
-=begin%>
- 
-<%= button_to "<i class='fa fa-pencil'></i>".html_safe, edit_song_path(sp), method: 'get', class: "btn btn-success" %>
-
-<%= button_to raw("<i class='fa fa-pencil'></i>"), edit_song_path(sp), method: 'get' %>  
- 
-<%
-=end%>

@@ -2,7 +2,6 @@ class SongsController < ApplicationController
     
     ##### Autenticação #####
     before_action :require_login
-    before_action :artist_login
     
     ##### SHOW #####
     def index
