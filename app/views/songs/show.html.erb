@@ -1,9 +1,11 @@
-<h2>NAME: <%= @song.name %></h2>
-<h4>Explicit: <%= @song.explicit %></h4>
-<h4>Album: "<%= @song.album.name %>"</h4>
-<h4>Genre: "<%= @song.genre %>"</h4>
+<div class="editarMusica linhas">
+    <h2 class="font-weight-bold pb-2">NAME: <%= @song.name %></h2>
+    <h2 class="font-weight-bold pb-2">Explicit: <%= @song.explicit %></h2>
+    <h2 class="font-weight-bold pb-2">Album: "<%= @song.album.name %>"</h2>
+    <h2 class="font-weight-bold pb-2">Genre: "<%= @song.genre %>"</h2>
 
-<%= audio_tag (url_for(@song.file)), controls: true %>
-<%= button_to "All Songs", songs_path, method: :get %>
-<%= button_to "Edit Song", edit_song_path(@song), method: :get %>
-<%= button_to 'Remove Song', song_path(@song), method: 'delete', data: { confirm: 'Are you sure?' } %>
+    <p class=""><%= audio_tag (url_for(@song.file)), controls: true %></p>
+    <p class=""><%= button_to "All Songs", songs_path, method: :get %></p>
+    <p class=""><%= button_to "Edit Song", edit_song_path(@song), method: :get %></p>
+    <p class=""><%= button_to 'Remove Song', song_path(@song), method: 'delete', data: { confirm: 'Are you sure?' } %></p>
+</div>

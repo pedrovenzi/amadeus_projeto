@@ -15,6 +15,7 @@
           <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQzkgiLkxtQFxJmZ6uq33CO-1dms_ROo1xl17wRXLs3JgBlQ-Wq&usqp=CAU" class="card-img-top card-album" alt="Foto padrão de album"></td>
         <% end %>
         <td><%= link_to album.name, album_path(album), style: 'color:#FFFFFF; font-size: 20px' %></td>
+        <td class="editarTexto"> - </td>
         <td class="editarTexto"><%= album.artist.user.name %></td>
         <td><%= button_to 'Edit', edit_album_path(album), method: 'get'%></td>
         <td><%= button_to 'Remove', album_path(album), method: 'delete', data: { confirm: 'Você tme certeza?' } %></td>
