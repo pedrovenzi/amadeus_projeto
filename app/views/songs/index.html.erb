@@ -6,14 +6,18 @@
 <table>
   <% @songs.each do |song| %>
     <tr>
-      <td><%= link_to "<i class='fa fa-heart-o'></i>".html_safe, favoritesongs_path(favorite:{song_id: song.id, listener_id: current_user.listener.id}), method: :post, style: 'color:black;'  %></td>
+      <% if @favorites.where(song: song).present? %> 
+        <td><%= link_to "<i class='fa fa-heart'></i>".html_safe, favoritesong_path(@favorites.where(song_id: song.id, listener_id: @listener).ids), method: 'delete', style: 'color:black;'  %></td>
+      <% else %>
+        <td><%= link_to "<i class='fa fa-heart-o'></i>".html_safe, favoritesongs_path(favorite:{song_id: song.id, listener_id: current_user.listener.id}), method: :post, style: 'color:black;'  %></td>
+      <% end %>
       <td><%= link_to song.name, song_path(song), style: 'color:black;' %></td>
       <td><%= link_to song.album.name, album_path(song.album), style: 'color:black;' %></td>
-      <td><%= button_to 'Edit', edit_song_path(song), method: 'get' , :class=> "btn btn-outline-dark btn-block text-light" %></td>
-      <td><%= button_to 'Remove', song_path(song), method: 'delete', data: { confirm: 'Are you sure?' }, :class=> "btn btn-outline-dark btn-block text-light"  %></td>
+      <td><%= button_to 'Editar', edit_song_path(song), method: 'get' , :class=> "btn btn-outline-dark btn-block text-light" %></td>
+      <td><%= button_to 'Remover', song_path(song), method: 'delete', data: { confirm: 'Are you sure?' }, :class=> "btn btn-outline-dark btn-block text-light"  %></td>
     </tr>
   <% end %>
 </table>
-<p><h2><%= link_to "Add a New Song", new_song_path, style: 'color:#FFFFFF;' %></h2></p>
-<p><h2><%= link_to "Go to Albums", albums_path, style: 'color:#FFFFFF;' %></h2></p>
+<p><h2><%= link_to "Adicionar nove música", new_song_path, style: 'color:#FFFFFF;' %></h2></p>
+<p><h2><%= link_to "Ir para albuns", albums_path, style: 'color:#FFFFFF;' %></h2></p>
 </div>

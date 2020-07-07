@@ -1,11 +1,11 @@
 <div class="criarMusica">
-    <h1 class="text-light font-weight-bold">Create a Song</h1>
+    <h1 class="text-light font-weight-bold">Criar Música</h1>
     <%= form_for @song do |f| %>
-        <p><h2 class="text-light font-weight-bold">Enter Song's Name: <%= f.text_field :name, placeholder: "song name" %></h2></p>
-        <p><h2 class="text-light font-weight-bold">Explicit         : <%= f.check_box :explicit %></h2></p>
-        <p><h2 class="text-light font-weight-bold">Album_id         : <%= f.number_field :album_id, placeholder: "album name" %></h2></p>
-        <p><h2 class="text-light font-weight-bold">Genre            : <%= f.text_field :genre, placeholder: "genre name" %></h2></p>
-        <p><h2 class="text-light font-weight-bold">Musica           : <%= f.file_field :file %></h2></p>
+        <p><h2 class="text-light font-weight-bold">nome da música: <%= f.text_field :name, placeholder: "song name" %></h2></p>
+        <p><h2 class="text-light font-weight-bold">Explicit?        : <%= f.check_box :explicit %></h2></p>
+        <p><h2 class="text-light font-weight-bold">Album        : <%= f.number_field :album_id, placeholder: "album name" %></h2></p>
+        <p><h2 class="text-light font-weight-bold">Genero            : <%= f.text_field :genre, placeholder: "genre name" %></h2></p>
+        <p><h2 class="text-light font-weight-bold">Música           : <%= f.file_field :file %></h2></p>
 
         <%= f.submit'Create Music', :class => 'button button1' %>
     <% end %>

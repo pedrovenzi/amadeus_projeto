@@ -20,14 +20,14 @@ class FavoritesongsController < ApplicationController
     def create
         @favorite = FavoriteSong.new(favorite_params)
         @favorite.save!
-        redirect_to favoritesongs_path
+        redirect_to songs_path
     end
 
     ##### DELETE #####
     def destroy
         @favorite = FavoriteSong.find(params[:id])
         @favorite.destroy
-        redirect_to favoritesongs_path
+        redirect_to songs_path
     end
 
     # ADD IN A PRIVATE METHOD FOR FAVORITESONGS_PARAMS

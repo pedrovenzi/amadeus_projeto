@@ -11,8 +11,8 @@
                 <% end %>
             </div>
             <div class="col-5 col-sm-6 col-md-7" >
-                <h2>NAME: <%= @album.name %></h2>
-                <h4>Artist: "<%= @album.artist.user.name %>"</h4>
+                <h2>NOME: <%= @album.name %></h2>
+                <h4>Artista: "<%= @album.artist.user.name %>"</h4>
             </div>
             <div class="col-3 col-sm-3" >
                 <%= button_to "Ver    Albums", albums_path, method: :get, class: 'btn btn-outline-light btn-lg'  %>

@@ -6,6 +6,9 @@ class SongsController < ApplicationController
     ##### SHOW #####
     def index
         @songs = Song.all
+        @current_user = User.find(session["user_id"])
+        @listener = @current_user.listener
+        @favorites = FavoriteSong.where(listener_id: @listener)
     end
 
     def show
