@@ -2,11 +2,13 @@ class SongsController < ApplicationController
     
     ##### Autenticação #####
     before_action :require_login
-    before_action :artist_login
     
     ##### SHOW #####
     def index
         @songs = Song.all
+        @current_user = User.find(session["user_id"])
+        @listener = @current_user.listener
+        @favorites = FavoriteSong.where(listener_id: @listener)
     end
 
     def show

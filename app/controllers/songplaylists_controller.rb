@@ -30,6 +30,6 @@ class SongplaylistsController < ApplicationController
     # ADD IN A PRIVATE METHOD FOR SONGPLAYLIST_PARAMS
     private
         def songplaylist_params
-            params.permit(:song_id, :playlist_id)
+            params.require(:song_playlist).permit(:song_id, :playlist_id)
         end
 end

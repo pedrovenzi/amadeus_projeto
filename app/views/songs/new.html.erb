@@ -1,11 +1,11 @@
 <div class="criarMusica">
-    <h1 class="text-light font-weight-bold">Create a Song</h1>
+    <h1 class="text-light font-weight-bold">Criar Música</h1>
     <%= form_for @song do |f| %>
-        <p><h2 class="text-light font-weight-bold">Song's Name      : <%= f.text_field :name, placeholder: "song name" %></h2></p>
-        <p><h2 class="text-light font-weight-bold">Explicit         : <%= f.check_box :explicit %></h2></p>
-        <p><h2 class="text-light font-weight-bold">Album            : <%= f.select :album_id, options_for_select(@albums.map { |album| [album.name, album.id]}), placeholder: "album name" %></h2></p>
-        <p><h2 class="text-light font-weight-bold">Genre            : <%= f.select :genre, options_for_select(@genres.map { |genre| [genre.name, genre.id]}), placeholder: "genre name" %></h2></p>
-        <p><h2 class="text-light font-weight-bold">Musica           : <%= f.file_field :file %></h2></p>
+        <p><h2 class="text-light font-weight-bold">Nome da Música: <%= f.text_field :name, placeholder: "song name" %></h2></p>
+        <p><h2 class="text-light font-weight-bold">Explicito?    : <%= f.check_box :explicit %></h2></p>
+        <p><h2 class="text-light font-weight-bold">Id do Album   : <%= f.select :album_id, options_for_select(@albums.map { |album| [album.name, album.id]}), placeholder: "album name" %></h2></p>
+        <p><h2 class="text-light font-weight-bold">Genero        : <%= f.select :genre, options_for_select(@genres.map { |genre| [genre.name, genre.id]}), placeholder: "genre name" %></h2></p>
+        <p><h2 class="text-light font-weight-bold">Música        : <%= f.file_field :file %></h2></p>
 
         <%= f.submit'Create Song', :class => 'button button1' %>
     <% end %>

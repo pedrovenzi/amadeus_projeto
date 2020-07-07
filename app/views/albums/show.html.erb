@@ -11,8 +11,8 @@
                 <% end %>
             </div>
             <div class="col-5 col-sm-6 col-md-7" >
-                <h2>NAME: <%= @album.name %></h2>
-                <h4>Artist: "<%= @album.artist.user.name %>"</h4>
+                <h2>NOME: <%= @album.name %></h2>
+                <h4>Artista: "<%= @album.artist.user.name %>"</h4>
             </div>
             <div class="col-3 col-sm-3" >
                 <%= button_to "Ver    Albums", albums_path, method: :get, class: 'btn btn-outline-light btn-lg'  %>
@@ -27,12 +27,12 @@
         <table class="table text-light">
             <caption class="text-light"><%= link_to "Registrar nova musica", new_song_path, method: :get, style: 'color:#FFFFFF;' %></caption>
                 <thead>
-                    <tr class="">
-                        <th scope="col" class="col-1"></th>
-                        <th scope="col" class="col-3">Nome</th>
-                        <th scope="col" class="col-4">Play</th>
-                        <th scope="col" class="col-1">Editar</th>
-                        <th scope="col" class="col-2">Apagar</th>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Play</th>
+                        <th scope="col">Editar</th>
+                        <th scope="col">Apagar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,9 +40,9 @@
                     <tr>
                         <td scope="row"><i class="fa fa-music" aria-hidden="true"></i></td>
                         <td><%= sp.name %></td>
-                        <td><-- tocador de música --></td>
-                        <td><%= button_to "Editar Música", edit_song_path(sp), method: 'get', class: 'btn btn-outline-light' %></td>
-                        <td><%= button_to "Apagar música", song_path(sp), method: 'delete', data: { confirm: 'Você tem certeza que quer apagar essa música?'}, class: 'btn btn-outline-light' %></td>
+                        <td> <%= audio_tag (url_for(sp.file)), controls: true, class: 'song' %></td>
+                        <td><%= link_to "<i class='fa fa-pencil fa-lg'></i>".html_safe, edit_song_path(sp), method: :get, class: 'btn btn-outline-light icon' %></td>
+                        <td><%= link_to "<i class='fa fa-trash-o fa-lg'></i>".html_safe, song_path(sp), method: 'delete', data: { confirm: 'Você tem certeza que quer apagar essa música?'}, class: 'btn btn-outline-light icon' %></td>
                     </tr>
                 <% end %>
             </tbody>
@@ -50,20 +50,3 @@
     </div>
     <div class="espaco1"></div>
 </div>
-
-<%
-=begin%>
- <i class="fa fa-pencil" aria-hidden="true"></i>
-<i class="fa fa-trash-o" aria-hidden="true"></i> 
-<%
-=end%>
-
-<%
-=begin%>
- 
-<%= button_to "<i class='fa fa-pencil'></i>".html_safe, edit_song_path(sp), method: 'get', class: "btn btn-success" %>
-
-<%= button_to raw("<i class='fa fa-pencil'></i>"), edit_song_path(sp), method: 'get' %>  
- 
-<%
-=end%>

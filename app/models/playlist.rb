@@ -4,6 +4,6 @@ class Playlist < ApplicationRecord
   validates :listener, presence: true
 
   belongs_to :listener
-  has_many :song_playlists
+  has_many :song_playlists, dependent: :destroy
   has_many :songs, through: :song_playlists
 end
