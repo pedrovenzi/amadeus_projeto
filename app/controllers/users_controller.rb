@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     def create
         @user = User.new(users_params)
         # @artist = Artist.new(category_params)
-        @listener = Listener.new(listener_params)
+        # @listener = Listener.new(listener_params)
         if @user.save
             if params[:user][:role_id].eql? 1
                 @artist = Artist.create(user_id: @user.id)
