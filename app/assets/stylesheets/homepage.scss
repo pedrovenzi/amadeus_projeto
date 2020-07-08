@@ -1,16 +1,18 @@
+.body {
+  overflow-x: hidden;
+}
+
 
 /* CAROUSEL */
 
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
-  width: 70%;
   margin: auto;
 }
 
 .item {
   width: 100%;
-  height: 100vh;
-  min-height: 400px;
+  height: 100vh !important;
 }
 
 .carousel-indicators li {
@@ -26,4 +28,29 @@
   text-transform: uppercase;
 }
 
+.carousel {
+  height: 100vh;
+  width: 100%;
+  overflow-x :hidden;
+}
+.carousel .carousel-inner {
+  height:100%;
+}
+
 /* OUTROS */
+
+.video-background {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(0,0,0,0.4)
+}
+
+.caption {
+  position: absolute;
+  top: 38%;
+  width: 100%;
+  color: #FFFFFF;
+}
+
+
