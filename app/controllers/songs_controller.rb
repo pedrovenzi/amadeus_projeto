@@ -2,7 +2,7 @@ class SongsController < ApplicationController
     
     ##### Autenticação #####
     before_action :require_login
-    
+
     ##### SHOW #####
     def index
         @songs = Song.all

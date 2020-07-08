@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-    
+
     ##### Autenticação #####
     before_action :require_login
     before_action :artist_login
@@ -74,5 +74,12 @@ class AlbumsController < ApplicationController
     private
         def album_params
             params.require(:album).permit(:name, :artist_id, :photo)
+        end
+
+        def require_login
+            unless logged_in?
+                flash[:error] = "Você precisa estar logado"
+                redirect_to "/auth/login"
+            end
         end
 end
