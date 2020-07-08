@@ -1,0 +1,38 @@
+<div class="favoritos pt-5">
+    <div class="espaco1"></div>
+    <!-- Album/Artista -->
+    <div class="container text-monospace text-light p-4">
+        <div class="row">
+            <div class="col text-center" >
+                <h2>Bem Vindo á suas músicas favoritas</h2>
+                <h1><%= @listener.user.name %></h1>
+            </div>
+        </div>
+    </div>
+    <div class="espaco1"></div>
+    <!-- Músicas -->
+    <div class="container text-monospace playlist p-3">
+        <table class="table text-light">
+            <caption class="text-light pt-5"><%= link_to "Buscar novas músicas", songs_path, method: :get, style: 'color:#FFFFFF;' %></caption>
+                <thead>
+                    <tr class="">
+                        <th scope="col" class="text-center"><i class="fa fa-music col-1" aria-hidden="true"></i></th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Album</th>
+                        <th scope="col">Play</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <% @favorites.each do |favorito| %>
+                    <tr class="">
+                        <td scope="row" class="text-center"><%= link_to "<i class='fa fa-heart'></i>".html_safe, favoritesong_path(favorito), method: :delete, style: 'color:white;' %></td>
+                        <td><%= favorito.song.name %></td>
+                        <td><%= favorito.song.album.name %></td>
+                        <td><-- Tocador de música mp3 --></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+    <div class="espaco1"></div>
+</div>

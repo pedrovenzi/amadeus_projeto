@@ -1,7 +1,11 @@
-<h3 class="pt-5">Edit an Album</h3>
-<%= form_for @album do |f| %>
-    <p>Enter Album's New Name: <%= f.text_field :name %></p>
-    <p>Enter Album's Foto: <%= f.file_field:photo %></p>
+<div class="editar">
+    <div class="editor container text-center">
+        <h2 class=>Editar an Album</h3>
+        <%= form_for @album do |f| %>
+            <p>Nome do Album: <%= f.text_field :name, :class=> "btn btn-outline-light btn-block text-dark" %></p>
+            <p>Foto do Album: <%= f.file_field :photo, :class=> "btn btn-outline-light btn-block text-dark" %></p>
 
-    <%= f.submit %>
-<% end %>
+            <%= f.submit %>
+        <% end %>
+    </div>
+</div>

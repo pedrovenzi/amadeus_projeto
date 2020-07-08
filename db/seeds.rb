@@ -8,3 +8,9 @@
 
 artista = Role.create(name: "artista")
 usuario = Role.create(name: "usuario")
+
+Genre.create({name: "Rock 'n Roll"})
+Genre.create({name: 'Samba/Pagode'})
+Genre.create({name: 'Hip-Hop/Rap'})
+Genre.create({name: 'Clássica'})
+Genre.create({name: 'Pop'})

@@ -1,4 +1,5 @@
 class Artist < ApplicationRecord
   belongs_to :user
   has_many :songs, dependent: :destroy
-end
+
+  has_many :albums, dependent: :destroy

@@ -9,13 +9,42 @@
 
 .backgroundarrumado{
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    min-height: 1000px;
     background-image: url("https://images4.alphacoders.com/108/1080800.jpg");
     background-position: center top;
-	background-size:cover;
+    background-size:cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 .organizar{
     padding-top: 150px;
     text-align: center;
 }
+
+.criarAlbum{
+    padding-top: 150px;
+    padding-left: 80px;
+    background-image: url("https://images.alphacoders.com/959/959309.png");
+    background-position: center top;
+    background-size:cover;
+    height: 100vh;
+}
+
+.button1 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid grey;
+    font-size: large;
+  }
+  
+  .button1:hover {
+    background-color: grey;
+    color: white;
+  }
+
+  .editarTexto{
+      color: white;
+      font-size: 20px;
+  }

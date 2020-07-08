@@ -1,0 +1,12 @@
+ <div class="editar">
+    <div class="editor container text-center">
+        <h1>Cadastrar nova musica na Playlist<h1>
+        <%= form_for @songplaylist, url: songplaylists_path, method: :post do |sp| %>
+            <%= sp.label :song_id %>
+            <%= sp.collection_select :song_id, Song.all, :id, :name %>
+            <%= sp.label :playlist_id %>
+            <%= sp.collection_select :playlist_id, Playlist.where(listener_id: @current_user.listener.id), :id, :name %>
+            <%= sp.submit %>
+        <% end %>
+    </div>
+</div> 

@@ -6,6 +6,9 @@ class SongsController < ApplicationController
     ##### SHOW #####
     def index
         @songs = Song.all
+        @current_user = User.find(session["user_id"])
+        @listener = @current_user.listener
+        @favorites = FavoriteSong.where(listener_id: @listener)
     end
 
     def show
@@ -15,10 +18,14 @@ class SongsController < ApplicationController
     ###### CREATE #####
     def new
         @song= Song.new
+        @albums = Album.all
+        @genres = Genre.all
     end
     
     def create
         @song = Song.new(song_params)
+        @albums = Album.all
+        @genres = Genre.all
         
         begin
             @song.save!
@@ -27,17 +34,21 @@ class SongsController < ApplicationController
             puts exc
             flash[:notice] = exc
         ensure
-            redirect_to songs_path
+            redirect_to albums_path
         end
     end
     
     ##### UPDATE #####
     def edit
         @song = Song.find(params[:id])
+        @albums = Album.all
+        @genres = Genre.all
     end
     
     def update
         @song = Song.find(params[:id])
+        @albums = Album.all
+        @genres = Genre.all
     
         begin
             @song.update!(song_params)
@@ -46,13 +57,16 @@ class SongsController < ApplicationController
             puts exc
             flash[:notice] = exc
         ensure
-            redirect_to songs_path
+            redirect_to albums_path
         end
     end
 
     ##### DELETE #####
     def destroy
         @song = Song.find(params[:id])
+        @albums = Album.all
+        @genres = Genre.all
+
         begin
             @song.destroy!
             flash[:notice] = "Musica #{@song.name} deletada com sucesso"
@@ -60,20 +74,13 @@ class SongsController < ApplicationController
             puts exc
             flash[:notice] = exc
         ensure
-            redirect_to songs_path
+            redirect_to albums_path
         end
     end
     
     # ADD IN A PRIVATE METHOD FOR SONG_PARAMS
     private
         def song_params
-            params.require(:song).permit(:name, :explicit, :album_id, :genre)
-        end
-
-        def require_login
-            unless logged_in?
-                flash[:error] = "Você precisa estar logado"
-                redirect_to "/auth/login"
-            end
+            params.require(:song).permit(:name, :explicit, :album_id, :genre, :file)
         end
 end

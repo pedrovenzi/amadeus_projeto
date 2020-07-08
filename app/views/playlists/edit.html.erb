@@ -1,0 +1,6 @@
+<h3 class="pt-5">Editar Playlist</h3>
+<%= form_for @playlist do |play| %>
+    <p>Novo nome da playlist: <%= play.text_field :name %></p>
+
+    <%= play.submit %>
+<% end %>

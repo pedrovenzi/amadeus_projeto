@@ -10,10 +10,11 @@ class UsersController < ApplicationController
         # @artist = Artist.new(category_params)
         @listener = Listener.new(listener_params)
         if @user.save
-            # if :role_id == 1
-            # elsif :tole_id == 2
-            # @listener.save
-            #end
+            if params[:user][:role_id].eql? 1
+                @artist = Artist.create(user_id: @user.id)
+            else
+                @listener = Listener.create(user_id: @user.id)
+            end
             redirect_to root_path
         else
             render 'new'
