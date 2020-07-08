@@ -3,7 +3,6 @@
     <div class="organizar">
       <h1 class="text-light font-weight-bold"> Publique seus próprios álbuns, mostre sua música e crie sua própria história. </h1>
       <p><h2> <%= link_to "New Album", new_album_path, style: 'color:#FFFFFF;' %> </h2></p>
-      <p><h2> <%= link_to "Go to Songs", songs_path, style: 'color:#FFFFFF;' %> </h2></p> 
   </div>
   <table>
     <% @albums.each do |album| %>
