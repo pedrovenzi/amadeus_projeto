@@ -1,11 +1,12 @@
+
 <div class="editar">
     <div class="editor container text-center">
         <h3>Editar Música</h3>
         <%= form_for @song do |f| %>
             <p>Novo nome: <%= f.text_field :name, placeholder: "new name", :class=> "btn btn-light btn-block text-dark"  %></p>
             <p>Explicito?: <%= f.check_box :explicit %></p>
-            <p>Novo genero: <%= f.text_field :genre, placeholder: "new genre", :class=> "btn btn-light btn-block text-dark"  %></p>
-            <p>Música: <%= f.file_field :song_file, :class=> "btn btn-light btn-block text-dark"  %></p>
+            <p>Novo genero: <%= f.select :genre, options_for_select(@genres.map { |genre| [genre.name, genre.id]}), :class=> "btn btn-light btn-block text-dark"  %></p>
+            <p>Música: <%= f.file_field :file, :class=> "btn btn-light btn-block text-dark"  %></p>
 
             <%= f.submit %>
         <% end %>

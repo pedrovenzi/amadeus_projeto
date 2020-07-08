@@ -1,9 +1,8 @@
-<div class="backgroundarrumado">
+<div class="backgroundarrumado pb-5">
 <p id="notice" class="pt-5"><%= flash[:notice] %></p>
     <div class="organizar">
       <h1 class="text-light font-weight-bold"> Publique seus próprios álbuns, mostre sua música e crie sua própria história. </h1>
       <p><h2> <%= link_to "New Album", new_album_path, style: 'color:#FFFFFF;' %> </h2></p>
-      <p><h2> <%= link_to "Go to Songs", songs_path, style: 'color:#FFFFFF;' %> </h2></p> 
   </div>
   <table>
     <% @albums.each do |album| %>
@@ -19,4 +18,5 @@
         <td><%= button_to 'Remove', album_path(album), method: 'delete', data: { confirm: 'Você tem certeza?' } %></td>
     <% end %>
   </table>
+  <div class="espaco1"></div>
 </div>
