@@ -88,12 +88,10 @@ ActiveRecord::Schema.define(version: 2020_06_30_023936) do
   end
 
   create_table "song_playlists", force: :cascade do |t|
-    t.bigint "song_id"
-    t.bigint "playlist_id"
+    t.integer "song_id"
+    t.integer "playlist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["playlist_id"], name: "index_song_playlists_on_playlist_id"
-    t.index ["song_id"], name: "index_song_playlists_on_song_id"
   end
 
   create_table "songs", force: :cascade do |t|
@@ -125,8 +123,6 @@ ActiveRecord::Schema.define(version: 2020_06_30_023936) do
   add_foreign_key "favorite_songs", "songs"
   add_foreign_key "listeners", "users"
   add_foreign_key "playlists", "listeners"
-  add_foreign_key "song_playlists", "playlists"
-  add_foreign_key "song_playlists", "songs"
   add_foreign_key "songs", "albums"
   add_foreign_key "users", "roles"
 end
