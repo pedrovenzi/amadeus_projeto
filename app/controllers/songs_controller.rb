@@ -34,7 +34,7 @@ class SongsController < ApplicationController
             puts exc
             flash[:notice] = exc
         ensure
-            redirect_to songs_path
+            redirect_to albums_path
         end
     end
     
@@ -57,7 +57,7 @@ class SongsController < ApplicationController
             puts exc
             flash[:notice] = exc
         ensure
-            redirect_to songs_path
+            redirect_to albums_path
         end
     end
 
@@ -74,7 +74,7 @@ class SongsController < ApplicationController
             puts exc
             flash[:notice] = exc
         ensure
-            redirect_to songs_path
+            redirect_to albums_path
         end
     end
     
