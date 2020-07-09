@@ -1,18 +1,18 @@
-<h2>Nome    : <%= @playlist.name %></h2>
-<h4>Artista : <%= @playlist.listener.user.name %></h4>
-<h4>id      : <%= @playlist.id %></h4>
-
-<h2> Musicas </h2>
-<%= button_to "Registrar nova musica", new_songplaylist_path, method: :get %>
-<!-- não sei se essa rota de cima está correta -->
- <ul>
-    <% @playlist.song_playlists.each do |sp| %>
-        <li><%= sp.song.name %></li>
-        <%= button_to "Apagar da lista", songplaylist_path(sp), method: :delete %>
-    <% end %>
-</ul>      
-
-
-<%= button_to "Todas playlist", playlists_path, method: :get %>
-<%= button_to "Editar playlist", edit_playlist_path(@playlist), method: :get %>
-<%= button_to 'Apagar playlist', playlist_path(@playlist), method: 'delete', data: { confirm: 'Você tem certeza?' } %>
+<div class="showPlay">
+    <div class="telaShow">
+        <h1 class=texto>Bem vindo à Playlist: <%= @playlist.name %></h2>
+    </div>
+    <div class="container text-monospace playlist p-3">
+        <table class="table text-light">
+            <h2 class="nnn"> Músicas </h2>
+                <% @playlist.song_playlists.each do |sp| %>
+                    <tr class="">
+                        <td class="textoLista"><%= sp.song.name %></td>
+                        <td><%= audio_tag (url_for(sp.song.file)), controls: true, class:'song' %></td>
+                        <td class="textoLista butbut"><%= link_to "<i class='fa fa-trash-o textoLista1'></i>".html_safe, songplaylist_path(sp), method: :delete %></td>
+                    </tr>
+                <% end %>  
+        </table> 
+        <%= button_to "Registrar nova musica", new_songplaylist_path, method: :get %>
+    </div>  
+</div>
