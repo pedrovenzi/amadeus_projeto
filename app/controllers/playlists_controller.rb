@@ -24,7 +24,7 @@ class PlaylistsController < ApplicationController
         @playlist = Playlist.new(playlist_params)
         begin
             @playlist.save!
-            flash[:notice] = "Playlist #{@playlist.name} criado com sucesso"
+            flash[:notice] = "Playlist #{@playlist.name} criada com sucesso"
         rescue => exception
             flash[:notice] = exception
         ensure
@@ -41,7 +41,7 @@ class PlaylistsController < ApplicationController
         @playlist = Playlist.find(params[:id])
         begin
             @playlist.update!(playlist_params)
-            flash[:notice] = "Playlist #{@playlist.name} atualizado com sucesso"
+            flash[:notice] = "Playlist #{@playlist.name} atualizada com sucesso"
         rescue => exc
             puts exc
             flash[:notice] = exc
@@ -55,7 +55,7 @@ class PlaylistsController < ApplicationController
         @playlist = Playlist.find(params[:id])
         begin
             @playlist.destroy!
-            flash[:notice] = "Playlist #{@playlist.name} apagado com sucesso"
+            flash[:notice] = "Playlist #{@playlist.name} apagada com sucesso"
         rescue => exc
             puts exc
             flash[:notice] = exc
