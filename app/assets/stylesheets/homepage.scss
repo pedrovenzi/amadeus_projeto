@@ -1,7 +1,16 @@
-.body {
-  overflow-x: hidden;
+* {
+  margin: 0;
+  padding: 0;
 }
 
+body {
+  font-family: 'Noto Sans JP', sans-serif !important;
+  color: #FFFFFF;
+  background-color: black;
+  height: 100vh;
+  line-height: 1.6;
+  overflow: hidden;
+}
 
 /* CAROUSEL */
 
@@ -39,18 +48,84 @@
 
 /* OUTROS */
 
+.container-fluid {
+  width: 100%;
+  height: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
 .video-background {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: 90vh;
   background-color: rgba(0,0,0,0.4)
 }
 
 .caption {
   position: absolute;
-  top: 38%;
+  top: 35%;
   width: 100%;
   color: #FFFFFF;
+}
+
+/* BOTTOM NAVBAR */
+
+.bg-black {
+  background-color: #111;
+}
+
+.fixed-bottom {
+  margin: 0 !important;
+  position: fixed !important;
+  z-index: 1;
+  width: 100%;
+  padding: 0;
+  height: 100px;
+}
+
+/* SECTION */
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100% !important;
+  height: 100vh !important;
+  scroll-snap-align: center;
+}
+
+section h1 {
+  font-size: 4rem;
+  margin: 0;
+  padding: 0;
+}
+
+section p {
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+section#video {
+  background: #000000;
+}
+
+section#sobre{
+  background: #000000;
+}
+
+section#equipe {
+  background: #000000;
+}
+
+section#contato {
+  background: #000000;
 }
 
 
