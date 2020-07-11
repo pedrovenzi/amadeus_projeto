@@ -7,7 +7,7 @@
                 <% if @album.photo.attached? %>
                     <td><%= image_tag @album.photo, class: 'card-img-top card-album', alt: 'Foto do album' %></td>
                 <% else %>
-                    <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQzkgiLkxtQFxJmZ6uq33CO-1dms_ROo1xl17wRXLs3JgBlQ-Wq&usqp=CAU" class="card-img-top card-album" alt="Foto padrão de album"></td>
+                    <td><img src="/assets/capa-do-album.jpg" class="card-img-top card-album" alt="Foto padrão de album"></td>
                 <% end %>
             </div>
             <div class="col-5 col-sm-6 col-md-7" >

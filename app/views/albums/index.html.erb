@@ -9,13 +9,13 @@
   <% if @current_user.role_id == 1 %>
   <div class="row">
     <% @albums.each do |album| %>
-    <div class="col-sm-3 col-lg-2 mt-5">
+    <div class="col-sm-4 col-md-3 col-lg-2 mt-5">
       <div class="card-deck">
         <div class="card">
           <% if album.photo.attached? %>
             <%= image_tag album.photo, class: 'card-img-top img-fluid img-album', alt: 'Capa do album' %></td>
           <% else %>
-            <img class="card-img-top img-fluid img-album" src="https://img.freepik.com/vetores-gratis/disco-de-vinil-e-capa-marrom_182646-20.jpg?size=626&ext=jpg" alt="Capa do Album">
+            <img class="card-img-top img-fluid img-album" src="/assets/capa-do-album.jpg" alt="Capa do Album">
           <% end %>
           <div class="card-body">
             <h4 class="card-title"><%= link_to album.name, album_path(album), style: 'color:black' %></h4>
@@ -35,13 +35,13 @@
   <!-- Caso for um ouvinte logado -->
   <div class="row">
     <% @meudeus.each do |album| %>
-    <div class="col-sm-3 col-lg-2 mt-5">
+    <div class="col-sm-4 col-md-3 col-lg-2 mt-5">
       <div class="card-deck">
         <div class="card">
           <% if album.photo.attached? %>
             <%= image_tag album.photo, class: 'card-img-top img-fluid img-album', alt: 'Capa do album' %></td>
           <% else %>
-            <img class="card-img-top img-fluid img-album" src="https://img.freepik.com/vetores-gratis/disco-de-vinil-e-capa-marrom_182646-20.jpg?size=626&ext=jpg" alt="Capa do Album">
+            <img class="card-img-top img-fluid img-album" src="/assets/capa-do-album.jpg" alt="Capa do Album">
           <% end %>
           <div class="card-body">
             <h4 class="card-title"><%= link_to album.name, album_path(album), style: 'color:black' %></h4>
