@@ -14,10 +14,14 @@
     <tbody>
       <% @songs.each do |song| %>
         <tr>
-          <% if @favorites.where(song: song).present? %> 
-            <td  class="text-center"><%= link_to "<i class='fa fa-heart'></i>".html_safe, favoritesong_path(@favorites.where(song_id: song.id, listener_id: @listener).ids), method: 'delete', style: 'color:black;'  %></td>
+          <% if @current_user.role_id == 2 %>
+            <% if @favorites.where(song: song).present? %> 
+              <td  class="text-center"><%= link_to "<i class='fa fa-heart'></i>".html_safe, favoritesong_path(@favorites.where(song_id: song.id, listener_id: @listener).ids), method: 'delete', style: 'color:black;'  %></td>
+            <% else %>
+              <td  class="text-center"><%= link_to "<i class='fa fa-heart-o'></i>".html_safe, favoritesongs_path(favorite:{song_id: song.id, listener_id: current_user.listener.id}), method: :post, style: 'color:black;'  %></td>
+            <% end %>
           <% else %>
-            <td  class="text-center"><%= link_to "<i class='fa fa-heart-o'></i>".html_safe, favoritesongs_path(favorite:{song_id: song.id, listener_id: current_user.listener.id}), method: :post, style: 'color:black;'  %></td>
+            <td scope="row" class="text-center"><i class="fa fa-music" aria-hidden="true"></i></td>
           <% end %>
           <td><%= link_to song.name, song_path(song), style: 'color:black;' %></td>
           <td><%= link_to song.album.name, album_path(song.album), style: 'color:black;' %></td>

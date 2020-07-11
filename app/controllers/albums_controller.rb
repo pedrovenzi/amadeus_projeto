@@ -10,10 +10,12 @@ class AlbumsController < ApplicationController
         @listener = @current_user.listener
         @albums = Album.where(artist_id: @artist)
         @favorites = FavoriteSong.where(listener_id: @listener)
+        @meudeus = Album.all
     end
 
     def show
         @album = Album.find(params[:id])
+        @meudeus = Album.find(params[:id])
     end
 
     ##### CREATE #####
