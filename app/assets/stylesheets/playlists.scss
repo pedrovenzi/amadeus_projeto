@@ -6,6 +6,7 @@
     height: 100%;
     min-height: 1000px;
     background-image: url("/assets/show-album.jpg");
+    background-color: black;;
     background-color: black;
     background-position: center top;
     background-attachment: fixed;
@@ -28,3 +29,104 @@
     border-radius: 5px;
     min-height: 100px;
 }
+
+.organizar1{
+    padding-top: 40px;
+    text-align: center;
+    padding-bottom: 80px;
+}
+
+.fonteLink{
+    font-size: large;
+    color: white;
+}
+
+.bordinhaTop{
+    border-bottom: 2px solid grey;
+}
+
+.showPlay{
+    width: 100%;
+    height: 100vh;
+    background-position: center top;
+	background-size:cover;
+    background-image: url("https://images2.alphacoders.com/912/912769.jpg");
+
+}
+
+.telaShow{
+    padding-top: 200px;
+}
+
+.texto{
+    color: white;
+    padding-top: 20px;
+    text-align: center;
+    padding-bottom: 40px;
+}
+.nnn{
+    color: white;
+    border-top: 2px solid grey;
+    text-align: center;
+    font-size: x-large;
+}
+
+.textoLista{
+    color: white;
+    font-size: x-large;
+    
+}
+
+.topico{
+    list-style-type: none;
+    display: inline;
+}
+
+.textoLista1{
+    color: white;
+    font-size: x-large;
+    text-align: center;
+}
+
+.butbut{
+    text-align: right;
+}
+
+.shrink{
+    visibility: hidden;
+    animation: shrink_animation 0.5s;
+}
+
+@keyframes shrink_animation {
+    0% {
+      visibility: visible;
+    }
+  
+    50% {
+      transform: scale(1.3);
+    }
+  
+    100% {
+      transform: scale(0);
+      visibility: visible;
+    }
+  }
+
+  .popper {
+    animation: pop 0.5s;
+    visibility: visible;
+  }
+  
+  @keyframes pop {
+    0% {
+      transform: scale(0);
+    }
+  
+    50% {
+      transform: scale(1.3);
+    }
+  
+    100% {
+      transform: scale(1);
+    }
+  }

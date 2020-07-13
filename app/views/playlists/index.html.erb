@@ -1,38 +1,65 @@
-
-<div class="catapimbas pt-5">
+<div class="catapimbas">
 <div class="espaco1"></div>
-<p id="notice text-light" class="pt-5"><%= flash[:notice] %></p>
-
-<!-- Artista -->
-<div class="container artista text-monospace text-light p-4">
-    <div class="row">
-        <div class="col-2">
-            <img src="" id="imagem" alt="Foto Perfil" class="img-thumbnail" width="90px" height="90px">
-        </div>
-        <div class="col-9" >
-            <h2><%= @current_user.name %></h2>
-            <h4><%= @current_user.email %></h4>
-        </div>
-    </div>
-</div>
-<div class="espaco1"></div>
-       
-<!-- Playlist -->
-<div class="container text-monospace playlist p-2">
-  <table>
-    <% @playlists.each do |playlist| %>
-      <tr>
-        <td><%= link_to playlist.name, playlist_path(playlist) %></td>
-        <td><%= playlist.listener.user.name %></td>
-        <td><%= button_to 'Editar', edit_playlist_path(playlist), method: 'get'%></td>
-        <td><%= button_to 'Remover', playlist_path(playlist), method: 'delete', data: { confirm: 'Você tme certeza?' } %></td>
-    <% end %>
-  </table>
-  </div>
-    <div class="organizar">
+<p id="notice text-light"><%= flash[:notice] %></p>
+<div class="organizar1">
       <h1 class="text-light font-weight-bold">Monte suas próprias playlist.</h1>
       <p><h2> <%= link_to "Nova Playlist", new_playlist_path, style: 'color:#FFFFFF;' %> </h2></p>
     </div>
+       
+<!-- Playlist -->
+<div class="container text-monospace playlist p-2">
+  <table id="playlist_table">
+    <% @playlists.each do |playlist| %>
+      <tr class="bordinhaTop">
+        <td class="col"><span id="playlist_<%= playlist.id %>"><%= link_to playlist.name, playlist_path(playlist), :style=> 'color:#FFFFFF;', :class => 'fonteLink' %></span><i class=" pl-2 fa fa-check textoLista1 fa-2x shrink" aria-hidden="true" id="submit_edit_<%= playlist.id %>"></i></td>
+
+        <td class="col"><button class="btn btn-outline-secondary btn-lg", id="edit-playlist_<%= playlist.id %>">Editar</button></td>
+
+        <td class=""><%= link_to 'Remover', playlist_path(playlist), method: 'delete', data: { confirm: 'Você tem certeza?' }, :class=>'btn btn-outline-secondary btn-lg' %></td>
+    <% end %>
+  </table>
+  </div>
+    
 </div>
 
+<script>
+  $.ajaxSetup({
+    headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')}
+  });
 
+  $("#playlist_table").on("click", function (e) {
+      if (e.target && e.target.id.split("_")[0] === "edit-playlist") {
+        let playlist_id = e.target.id.split("_")[1]
+        $(`#playlist_${playlist_id}`).attr('contenteditable', 'true')
+        e.target.classList.toggle('shrink');
+        $(`#submit_edit_${playlist_id}`).toggleClass('shrink popper')
+
+        $(`#submit_edit_${playlist_id}`).on("click", function (e){
+          let playlist_id = e.target.id.split("_")[2]
+          $(`#edit-playlist_${playlist_id}`).toggleClass('shrink popper')
+          e.target.classList.toggle('shrink')
+          e.target.classList.toggle('popper')
+          let playlist_name = $(`#playlist_${playlist_id}`).text()
+          sendPlaylistParams(playlist_name, playlist_id)
+          $(`#playlist_${playlist_id}`).attr('contenteditable', 'false')
+        })
+
+      }
+    });
+  function sendPlaylistParams(playlist_name, playlist_id){
+    let playlist_params = {
+      playlist: {}
+    }
+    playlist_params.playlist.name = playlist_name;
+    $.ajax({
+      url: `/playlists/${playlist_id}`,
+      type: 'put',
+      data: playlist_params,
+      dataType: 'json',
+      success: function () {
+      }
+    });
+    
+  }
+  
+</script>
