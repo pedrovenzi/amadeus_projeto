@@ -1,9 +1,9 @@
 <div class="criarAlbum">
-    <h1 class="text-light font-weight-bold">Criar an Album</h1>
+    <h1 class="text-light font-weight-bold pb-5">Criar Álbum</h1>
     <%= form_for @album do |f| %>
-        <p><h2 class="text-light font-weight-bold">Nome do Album: <%= f.text_field :name, placeholder: "album ... " %></h2></p>
+        <p><h2 class="text-light font-weight-bold">Nome do Album: <%= f.text_field :name, placeholder: "album ... ", class: 'textoboxe' %></h2></p>
         <%= f.hidden_field :artist_id, :value => @current_user.artist.id %>
-        <p><h2 class="text-light font-weight-bold">Foto do Album: <%= f.file_field :photo %></h2></p>
-        <%= f.submit 'Criar Album', :class => 'button button1 '%>
+        <p><h2 class="text-light font-weight-bold pb-2">Foto do Album: <%= f.file_field :photo, :class => "filestyle" %></h2></p>
+        <%= f.submit 'Criar Album', :class => 'botao' %>
     <% end %>
 </div>

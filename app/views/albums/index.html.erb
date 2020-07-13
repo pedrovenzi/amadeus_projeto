@@ -2,7 +2,9 @@
 <p id="notice" class="pt-5"><%= flash[:notice] %></p>
   <div class="organizar">
     <h1 class="text-light font-weight-bold"> Publique seus próprios álbuns, mostre sua música e crie sua própria história. </h1>
-    <p><h2> <%= link_to "Novo Álbum", new_album_path, style: 'color:#FFFFFF;' %> </h2></p>
+    <% if @current_user.role_id == 1 %>
+      <p><h2> <%= link_to "Novo Álbum", new_album_path, style: 'color:#FFFFFF;' %> </h2></p>
+    <% end %>
     <p><h2> <%= link_to "ir para as músicas", songs_path, style: 'color:#FFFFFF;' %> </h2></p>
   </div>
   <!-- Caso for um artista logado -->
@@ -24,7 +26,7 @@
                 <td scope="row"><i class="fa fa-music" aria-hidden="true"></i></td>
                 <td><%= sp.name %></td>
               <% end %></p>
-            <p class="card-text"><small class="text-muted">Ver Mais</small></p>
+            <p class="card-text"><%= link_to 'Remover Album', album_path(album), method: 'delete', data: { confirm: 'Você tem certeza?' }, style: 'color:black;'  %></p>
           </div>
         </div>
       </div>

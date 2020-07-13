@@ -47,3 +47,24 @@
     color: white;
     text-align: center;
 }
+.textoboxe2{
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    color: black;
+    text-align: center;
+    border-bottom: 2px solid rgb(204, 62, 62);
+}
+.botao2{
+    background-color: rgb(204, 62, 62);
+    border: none;
+    border-radius: 4px;
+    text-size-adjust: 100px;
+    transition-duration: 0.4s;
+    color: white;
+    font-size: 20px;
+}
+.botao2:hover {
+    background-color: rgba(204, 62, 62, 0.671); /* Green */
+    color: whitesmoke;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}

@@ -15,4 +15,35 @@
     font-size: 20px;
 }
 
+.textos{
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    color: whitesmoke;
+    border-bottom: 2px solid rgb(62, 65, 204);
+    width: 70%;
+    text-align: center;
+}
+.butao{
+    background-color: rgb(62, 65, 204);
+    border: none;
+    border-radius: 4px;
+    text-size-adjust: 100px;
+    transition-duration: 0.4s;
+    color: white;
+    font-size: 22px;
+}
+.butao:hover {
+    background-color: rgba(62, 64, 204, 0.671); /* Green */
+    color: whitesmoke;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
 
+.copyright{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding-bottom: 9px;
+    width: 100%;
+    color: rgba(245, 222, 179, 0.37);
+    text-align: center;
+}

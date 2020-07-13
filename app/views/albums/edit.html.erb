@@ -1,11 +1,13 @@
 <div class="editar">
     <div class="editor container text-center">
-        <h2 class=>Editar an Album</h3>
+        <h1 class="pb-5 font-weight-bold">Editar Álbum</h1>
         <%= form_for @album do |f| %>
-            <p>Nome do Album: <%= f.text_field :name, :class=> "btn btn-outline-light btn-block text-dark" %></p>
-            <p>Foto do Album: <%= f.file_field :photo, :class=> "btn btn-outline-light btn-block text-dark" %></p>
+            <h2>Nome do Album:</h2> 
+            <h2><%= f.text_field :name, :class=> "textoboxe2" %></h2>
+            <h2>Foto do Album:</h2> 
+            <h2 class="pb-3"><%= f.file_field :photo, :class=> "textoboxe2" %></h2>
 
-            <%= f.submit %>
+            <%= f.submit 'Salvar alterações', :class => 'botao2' %>
         <% end %>
     </div>
 </div>
