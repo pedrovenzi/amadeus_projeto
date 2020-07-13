@@ -28,7 +28,7 @@
                         <td scope="row" class="text-center"><%= link_to "<i class='fa fa-heart'></i>".html_safe, favoritesong_path(favorito), method: :delete, style: 'color:white;' %></td>
                         <td><%= favorito.song.name %></td>
                         <td><%= favorito.song.album.name %></td>
-                        <td><-- Tocador de música mp3 --></td>
+                        <td><%= audio_tag (url_for(favorito.song.file)), controls: true, class:'song' %></td>
                     </tr>
                 <% end %>
             </tbody>
