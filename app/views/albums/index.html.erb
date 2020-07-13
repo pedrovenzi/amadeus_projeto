@@ -1,22 +1,61 @@
 <div class="backgroundarrumado">
 <p id="notice" class="pt-5"><%= flash[:notice] %></p>
-    <div class="organizar">
-      <h1 class="text-light font-weight-bold"> Publique seus próprios álbuns, mostre sua música e crie sua própria história. </h1>
-      <p><h2> <%= link_to "New Album", new_album_path, style: 'color:#FFFFFF;' %> </h2></p>
+  <div class="organizar">
+    <h1 class="text-light font-weight-bold"> Publique seus próprios álbuns, mostre sua música e crie sua própria história. </h1>
+    <p><h2> <%= link_to "Novo Álbum", new_album_path, style: 'color:#FFFFFF;' %> </h2></p>
+    <p><h2> <%= link_to "ir para as músicas", songs_path, style: 'color:#FFFFFF;' %> </h2></p>
   </div>
-  <table>
+  <!-- Caso for um artista logado -->
+  <% if @current_user.role_id == 1 %>
+  <div class="row">
     <% @albums.each do |album| %>
-      <tr>
-        <% if album.photo.attached? %>
-          <td><%= image_tag album.photo, class: 'card-img-top card-album', alt: 'Foto do album' %></td>
-        <% else %>
-          <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQzkgiLkxtQFxJmZ6uq33CO-1dms_ROo1xl17wRXLs3JgBlQ-Wq&usqp=CAU" class="card-img-top card-album" alt="Foto padrão de album"></td>
-        <% end %>
-        <td><%= link_to album.name, album_path(album), style: 'color:#FFFFFF; font-size: 20px' %></td>
-        <td class="editarTexto"> - </td>
-        <td class="editarTexto"><%= album.artist.user.name %></td>
-        <td><%= button_to 'Edit', edit_album_path(album), method: 'get'%></td>
-        <td><%= button_to 'Remove', album_path(album), method: 'delete', data: { confirm: 'Você tem certeza?' } %></td>
-    <% end %>
-  </table>
+    <div class="col-sm-4 col-md-3 col-lg-2 mt-5">
+      <div class="card-deck">
+        <div class="card">
+          <% if album.photo.attached? %>
+            <%= image_tag album.photo, class: 'card-img-top img-fluid img-album', alt: 'Capa do album' %></td>
+          <% else %>
+            <img class="card-img-top img-fluid img-album" src="/assets/capa-do-album.jpg" alt="Capa do Album">
+          <% end %>
+          <div class="card-body">
+            <h4 class="card-title"><%= link_to album.name, album_path(album), style: 'color:black' %></h4>
+            <p class="card-text">Algumas Músicas presente no album :
+            <% Song.where(album_id: album.id).last(3).each do |sp| %>
+                <td scope="row"><i class="fa fa-music" aria-hidden="true"></i></td>
+                <td><%= sp.name %></td>
+              <% end %></p>
+            <p class="card-text"><small class="text-muted">Ver Mais</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+  <% else %>
+  <!-- Caso for um ouvinte logado -->
+  <div class="row">
+    <% @meudeus.each do |album| %>
+    <div class="col-sm-4 col-md-3 col-lg-2 mt-5">
+      <div class="card-deck">
+        <div class="card">
+          <% if album.photo.attached? %>
+            <%= image_tag album.photo, class: 'card-img-top img-fluid img-album', alt: 'Capa do album' %></td>
+          <% else %>
+            <img class="card-img-top img-fluid img-album" src="/assets/capa-do-album.jpg" alt="Capa do Album">
+          <% end %>
+          <div class="card-body">
+            <h4 class="card-title"><%= link_to album.name, album_path(album), style: 'color:black' %></h4>
+            <p class="card-text">Algumas Músicas presente no album :
+            <% Song.where(album_id: album.id).last(3).each do |sp| %>
+                <td scope="row"><i class="fa fa-music" aria-hidden="true"></i></td>
+                <td><%= sp.name %></td>
+              <% end %></p>
+            <p class="card-text"><small class="text-muted">Ver Mais</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+  <% end %>
 </div>

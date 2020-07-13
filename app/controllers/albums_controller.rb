@@ -2,17 +2,20 @@ class AlbumsController < ApplicationController
 
     ##### Autenticação #####
     before_action :require_login
-    before_action :artist_login
 
     ##### SHOW #####
     def index
         @current_user = User.find(session["user_id"])
         @artist = @current_user.artist
+        @listener = @current_user.listener
         @albums = Album.where(artist_id: @artist)
+        @favorites = FavoriteSong.where(listener_id: @listener)
+        @meudeus = Album.all
     end
 
     def show
         @album = Album.find(params[:id])
+        @meudeus = Album.find(params[:id])
     end
 
     ##### CREATE #####

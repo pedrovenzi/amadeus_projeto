@@ -3,7 +3,7 @@
     <%= form_for @song do |f| %>
         <p><h2 class="text-light font-weight-bold">Nome da Música: <%= f.text_field :name, placeholder: "song name" %></h2></p>
         <p><h2 class="text-light font-weight-bold">Explicito?    : <%= f.check_box :explicit %></h2></p>
-        <p><h2 class="text-light font-weight-bold">Id do Album   : <%= f.collection_select :album_id, Album.where(artist_id: @current_user.artist.id), :id, :name %></h2></p>
+        <p><h2 class="text-light font-weight-bold">Album   : <%= f.collection_select :album_id, Album.where(artist_id: @current_user.artist.id), :id, :name %></h2></p>
         <p><h2 class="text-light font-weight-bold">Genero        : <%= f.select :genre, options_for_select(@genres.map { |genre| [genre.name, genre.id]}), placeholder: "genre name" %></h2></p>
         <p><h2 class="text-light font-weight-bold">Música        : <%= f.file_field :file %></h2></p>
 

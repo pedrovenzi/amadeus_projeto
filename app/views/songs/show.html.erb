@@ -1,11 +1,16 @@
 <div class="editarMusica linhas">
-    <h2>NAME: <%= @song.name %></h2>
-    <h4>Explicit: <%= @song.explicit %></h4>
+    <h2>Nome: <%= @song.name %></h2>
     <h4>Album: "<%= @song.album.name %>"</h4>
-    <h4>Genre: "<%= @song.genre %>"</h4>
+    <h4>Genero: "<%= @song.genre %>"</h4>
 
-    <%= audio_tag (url_for(@song.file)), controls: true %>
-    <%= button_to "All Songs", songs_path, method: :get %>
-    <%= button_to "Edit Song", edit_song_path(@song), method: :get %>
-    <%= button_to 'Remove Song', song_path(@song), method: 'delete', data: { confirm: 'Are you sure?' } %>
+    <% if @current_user.role_id == 1 %>
+        <% if @current_user.artist.id == @song.album.artist.id %>
+            <%= button_to "Todas as músicas", songs_path, method: :get, :class=> "btn btn-outline-dark" %>
+            <%= button_to "Editar música", edit_song_path(@song), method: :get, :class=> "btn btn-outline-dark" %>
+            <%= button_to 'remover música', song_path(@song), method: 'delete', data: { confirm: 'Are you sure?' }, :class=> "btn btn-outline-dark" %>
+        <% end %>
+    <% end %>
 </div>
+<footer class="tocadormp3">
+    <%= audio_tag (url_for(@song.file)), controls: true, class: 'song' %>
+</footer>
