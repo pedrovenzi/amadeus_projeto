@@ -19,7 +19,7 @@
         <div class="form-group">
             <h2>Tipo de usuário:</h2>
             <div class="">
-                <%= form.select(:role_id, options_for_select([['Artista',1],['Ouvinte',2]])) %>
+                <%= form.select(:role_id, options_for_select([['Artista',1],['Ouvinte',2]]), {prompt: "Selecionar Categoria"}, { class: 'droplist' }) %>
             </div>
         </div>
 

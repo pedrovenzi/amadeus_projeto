@@ -1,3 +1,32 @@
 // Place all the styles related to the songplaylists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.droplist2{
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    color: black;
+    border-bottom: 2px solid rgb(204, 62, 62);
+    text-align: center;
+}
+.droplist2:hover{
+    border: none;
+    background-color: rgba(204, 62, 62, 0.603);
+    color: black;
+    border-bottom: 2px solid rgb(204, 62, 62);
+    text-align: center;
+}
+.botao3{
+    background-color: rgb(204, 62, 62);
+    border: none;
+    border-radius: 4px;
+    text-size-adjust: 100px;
+    transition-duration: 0.4s;
+    color: black;
+    font-size: 22px;
+}
+.botao3:hover {
+    background-color: rgba(204, 62, 62, 0.671); /* Green */
+    color: whitesmoke;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}

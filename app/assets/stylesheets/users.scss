@@ -47,3 +47,17 @@
     color: rgba(245, 222, 179, 0.37);
     text-align: center;
 }
+.droplist{
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    color: whitesmoke;
+    border-bottom: 2px solid rgb(62, 65, 204);
+    text-align: center;
+}
+.droplist:hover{
+    border: none;
+    background-color: rgba(62, 64, 204, 0.603);
+    color: whitesmoke;
+    border-bottom: 2px solid rgb(62, 65, 204);
+    text-align: center;
+}
