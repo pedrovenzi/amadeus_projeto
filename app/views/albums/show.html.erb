@@ -17,8 +17,10 @@
             <div class="col-3 col-sm-3" >
                 <%= button_to "Ver    Albums", albums_path, method: :get, class: 'btn btn-outline-light btn-lg'  %>
                 <% if @current_user.role_id == 1 %>
-                    <%= button_to "Editar  Album", edit_album_path(@album), method: :get, class: 'btn btn-outline-light btn-lg'  %>
-                    <%= button_to 'Remover Album', album_path(@album), method: 'delete', data: { confirm: 'Você tem certeza?' }, class: 'btn btn-outline-light btn-lg'  %>
+                    <% if @current_user.artist.id == @album.artist.id %>
+                        <%= button_to "Editar  Album", edit_album_path(@album), method: :get, class: 'btn btn-outline-light btn-lg'  %>
+                        <%= button_to 'Remover Album', album_path(@album), method: 'delete', data: { confirm: 'Você tem certeza?' }, class: 'btn btn-outline-light btn-lg'  %>
+                    <% end %>
                 <% end %>
             </div>
         </div>
@@ -36,8 +38,10 @@
                         <th scope="col" class="h2">Nome</th>
                         <th scope="col" class="h2">Play</th>
                         <% if @current_user.role_id == 1 %>
-                            <th scope="col" class="h5">Editar</th>
-                            <th scope="col" class="h5">Apagar</th>
+                            <% if @current_user.artist.id == @album.artist.id %>
+                                <th scope="col" class="h5">Editar</th>
+                                <th scope="col" class="h5">Apagar</th>
+                            <% end %>
                         <% end %>
                     </tr>
                 </thead>
@@ -56,8 +60,10 @@
                             <td scope="row"><i class="fa fa-music fa-lg" aria-hidden="true"></i></td>
                             <td class="h4"><%= sp.name %></td>
                             <td> <%= audio_tag (url_for(sp.file)), controls: true, class: 'song' %></td>
-                            <td><%= link_to "<i class='fa fa-pencil fa-lg'></i>".html_safe, edit_song_path(sp), method: :get, class: 'btn btn-outline-light icon' %></td>
-                            <td><%= link_to "<i class='fa fa-trash-o fa-lg'></i>".html_safe, song_path(sp), method: 'delete', data: { confirm: 'Você tem certeza que quer apagar essa música?'}, class: 'btn btn-outline-light icon' %></td>
+                            <% if @current_user.artist.id == @album.artist.id %>
+                                <td><%= link_to "<i class='fa fa-pencil fa-lg'></i>".html_safe, edit_song_path(sp), method: :get, class: 'btn btn-outline-light icon' %></td>
+                                <td><%= link_to "<i class='fa fa-trash-o fa-lg'></i>".html_safe, song_path(sp), method: 'delete', data: { confirm: 'Você tem certeza que quer apagar essa música?'}, class: 'btn btn-outline-light icon' %></td>
+                            <% end %>
                         <% end %>
                     </tr>
                 <% end %>

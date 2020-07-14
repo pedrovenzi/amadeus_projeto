@@ -1,16 +1,25 @@
-
 <div class="editar">
     <div class="editor container text-center">
         <h1 class="pb-5 font-weight-bold">Editar Música</h1>
-        <%= form_for @song do |f| %>
-            <h2>Novo nome:</h2>
-             <h2><%= f.text_field :name, :class=> "textoboxe2" %></h2>
-            <h2>Explicito?: <%= f.check_box :explicit %></h2>
-            <h2>Novo genero: <%= f.select :genre, options_for_select(@genres.map { |genre| [genre.name, genre.id]}), :class => 'textoboxe'  %></h2>
-            <h2>Música:</h2> 
-            <h2 class="pb-3"><%= f.file_field :file, :class=> "textoboxe2" %></h2>
+        <% if @current_user.role_id == 1 %>
+            <% if @current_user.artist.id == @song.album.artist.id %>
+                <%= form_for @song do |f| %>
+                    <h2>Novo nome:</h2>
+                    <h2><%= f.text_field :name, :class=> "textoboxe2" %></h2>
+                    <h2>Explicito?: <%= f.check_box :explicit %></h2>
+                    <h2>Novo genero: <%= f.select :genre, options_for_select(@genres.map { |genre| [genre.name, genre.id]}), :class => 'textoboxe'  %></h2>
+                    <h2>Música:</h2> 
+                    <h2 class="pb-3"><%= f.file_field :file, :class=> "textoboxe2" %></h2>
 
-            <%= f.submit 'Salvar alterações', :class => 'botao2' %>
+                    <%= f.submit 'Salvar alterações', :class => 'botao2' %>
+                <% end %>
+            <% else %>
+                <h1 class="font-weight-bold">Você não pode estar aqui '-'</h1>
+                <h2><%= link_to "voltar para as músicas", songs_path, style: 'color:black;' %> </h2>
+            <% end %>
+        <% else %>
+            <h1 class="font-weight-bold">Você não pode estar aqui '-'</h1>
+            <h2><%= link_to "voltar para as músicas", songs_path, style: 'color:black;' %> </h2>
         <% end %>
     </div>
 </div>

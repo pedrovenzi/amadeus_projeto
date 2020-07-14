@@ -1,13 +1,22 @@
 <div class="editar">
     <div class="editor container text-center">
-        <h1 class="pb-5 font-weight-bold">Editar Álbum</h1>
-        <%= form_for @album do |f| %>
-            <h2>Nome do Album:</h2> 
-            <h2><%= f.text_field :name, :class=> "textoboxe2" %></h2>
-            <h2>Foto do Album:</h2> 
-            <h2 class="pb-3"><%= f.file_field :photo, :class=> "textoboxe2" %></h2>
-
-            <%= f.submit 'Salvar alterações', :class => 'botao2' %>
+        <% if @current_user.role_id == 1 %>
+            <% if @current_user.artist.id == @album.artist.id %>
+                <h1 class="pb-5 font-weight-bold">Editar Álbum</h1>
+                <%= form_for @album do |f| %>
+                    <h2>Nome do Album:</h2> 
+                    <h2><%= f.text_field :name, :class=> "textoboxe2" %></h2>
+                    <h2>Foto do Album:</h2> 
+                    <h2 class="pb-3"><%= f.file_field :photo, :class=> "textoboxe2" %></h2>
+                    <%= f.submit 'Salvar alterações', :class => 'botao2' %>
+                <% end %>
+            <% else %>
+                <h1 class="font-weight-bold">Você não pode estar aqui '-'</h1>
+                <h2> <%= link_to "voltar para as músicas", songs_path, style: 'color:black;' %> </h2>
+            <% end %>
+        <% else %>
+            <h1 class="font-weight-bold">Você não pode estar aqui '-'</h1>
+            <h2> <%= link_to "voltar para as músicas", songs_path, style: 'color:black;' %> </h2>
         <% end %>
     </div>
 </div>

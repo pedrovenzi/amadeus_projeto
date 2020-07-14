@@ -1,12 +1,17 @@
 <div class="criarMusica">
     <h1 class="text-light font-weight-bold pb-5">Criar Música</h1>
-    <%= form_for @song do |f| %>
-        <p><h2 class="text-light font-weight-bold">Nome da Música: <%= f.text_field :name, placeholder: "song name", class: 'textoboxe' %></h2></p>
-        <p><h2 class="text-light font-weight-bold">Explícito?    : <%= f.check_box :explicit %></h2></p>
-        <p><h2 class="text-light font-weight-bold">Álbum         : <%= f.collection_select(:album_id, Album.where(artist_id: @current_user.artist.id), :id, :name, {prompt: "Selecionar Álbum"}, { class: 'droplist' }) %></h2></p>
-        <p><h2 class="text-light font-weight-bold">Gênero        : <%= f.select(:genre, options_for_select(@genres.map { |genre| [genre.name, genre.id]}), {prompt: "Selecionar Gênero"}, { class: 'droplist' }) %></h2></p>
-        <p><h2 class="text-light font-weight-bold pb-3">Música        : <%= f.file_field :file %></h2></p>
+    <% if @current_user.role_id == 1 %>
+        <%= form_for @song do |f| %>
+            <p><h2 class="text-light font-weight-bold">Nome da Música: <%= f.text_field :name, placeholder: "song name", class: 'textoboxe' %></h2></p>
+            <p><h2 class="text-light font-weight-bold">Explícito?    : <%= f.check_box :explicit %></h2></p>
+            <p><h2 class="text-light font-weight-bold">Álbum         : <%= f.collection_select(:album_id, Album.where(artist_id: @current_user.artist.id), :id, :name, {prompt: "Selecionar Álbum"}, { class: 'droplist' }) %></h2></p>
+            <p><h2 class="text-light font-weight-bold">Gênero        : <%= f.select(:genre, options_for_select(@genres.map { |genre| [genre.name, genre.id]}), {prompt: "Selecionar Gênero"}, { class: 'droplist' }) %></h2></p>
+            <p><h2 class="text-light font-weight-bold pb-3">Música        : <%= f.file_field :file %></h2></p>
 
-        <%= f.submit'Create Song', :class => 'botao' %>
+            <%= f.submit'Create Song', :class => 'botao' %>
+        <% end %>
+    <% else %>
+        <h1 class="font-weight-bold text-light">Você não pode estar aqui '-'</h1>
+        <h2><%= link_to "voltar para as músicas", songs_path, style: 'color:white;' %> </h2>
     <% end %>
 </div>
