@@ -12,7 +12,7 @@ body {
   overflow: hidden;
 }
 
-/* CAROUSEL */
+/* CAROUSEL
 
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
@@ -45,6 +45,7 @@ body {
 .carousel .carousel-inner {
   height:100%;
 }
+*/
 
 /* OUTROS */
 
@@ -53,9 +54,12 @@ body {
   height: 100%;
   margin: 0 !important;
   padding: 0 !important;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
+  /*overflow-y: scroll;*/
+  /* scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;*/
+  align-content: center;
+
+
 }
 
 .video-background {
@@ -113,19 +117,30 @@ section p {
 }
 
 section#video {
-  background: #000000;
+  background: #111111;
 }
 
 section#sobre{
-  background: #000000;
+  background: #111111;
 }
 
 section#equipe {
-  background: #000000;
+  background: #111111;
 }
 
 section#contato {
-  background: #000000;
+  background: #111111;
 }
+
+.paragraph {
+
+}
+
+/* CARDS */
+
+
+@media only screen and (max-width: 992px) {
+  flex-direction: column;
+  }
 
 
