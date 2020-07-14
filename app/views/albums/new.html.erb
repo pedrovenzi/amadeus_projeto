@@ -1,16 +1,11 @@
 <div class="criarAlbum">
     <h1 class="text-light font-weight-bold pb-5">Criar Álbum</h1>
     <% if @current_user.role_id == 1 %>
-        <% if @current_user.artist.id == @song.album.artist.id %>
             <%= form_for @album do |f| %>
                 <p><h2 class="text-light font-weight-bold">Nome do Album: <%= f.text_field :name, placeholder: "album ... ", class: 'textoboxe' %></h2></p>
                 <%= f.hidden_field :artist_id, :value => @current_user.artist.id %>
                 <p><h2 class="text-light font-weight-bold pb-2">Foto do Album: <%= f.file_field :photo, :class => "filestyle" %></h2></p>
                 <%= f.submit 'Criar Album', :class => 'botao' %>
-            <% end %>
-            <% else %>
-                <h1 class="font-weight-bold text-light">Você não pode estar aqui '-'</h1>
-                <h2><%= link_to "voltar para as músicas", songs_path, style: 'color:white;' %> </h2>
             <% end %>
     <% else %>
         <h1 class="font-weight-bold text-light">Você não pode estar aqui '-'</h1>
