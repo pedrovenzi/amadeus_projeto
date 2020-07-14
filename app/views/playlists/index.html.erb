@@ -9,6 +9,7 @@
 <!-- Playlist -->
 <div class="container text-monospace playlist p-2">
   <table id="playlist_table">
+    <h2 class="nnn">Suas</h2>
     <% @playlists.each do |playlist| %>
       <tr class="bordinhaTop">
         <td class="col"><span id="playlist_<%= playlist.id %>"><%= link_to playlist.name, playlist_path(playlist), :style=> 'color:#FFFFFF;', :class => 'fonteLink' %></span><i class=" pl-2 fa fa-check textoLista1 fa-2x shrink" aria-hidden="true" id="submit_edit_<%= playlist.id %>"></i></td>
