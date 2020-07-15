@@ -10,7 +10,7 @@ class AlbumsController < ApplicationController
         @listener = @current_user.listener
         @albums = Album.where(artist_id: @artist)
         @favorites = FavoriteSong.where(listener_id: @listener)
-        @meudeus = Album.all
+        @meudeus = Album.search(params[:search])
     end
 
     def show
@@ -76,7 +76,7 @@ class AlbumsController < ApplicationController
     # ADD IN A PRIVATE METHOD FOR ALBUM_PARAMS 
     private
         def album_params
-            params.require(:album).permit(:name, :artist_id, :photo)
+            params.require(:album).permit(:name, :artist_id, :photo, :search)
         end
 
         def require_login

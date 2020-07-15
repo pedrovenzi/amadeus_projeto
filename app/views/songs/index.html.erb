@@ -1,16 +1,23 @@
 <div class="criarMusica">
   <p id="notice"><%= flash[:notice] %></p>
 
-  <h1 class="fonteh1"> Escute suas músicas preferidas onde quiser. </h1>
+  <h1 class="fonteh1 text-light text-center"> Escute suas músicas preferidas onde quiser. </h1>
 
   <table>
     <thead>
-      <tr class="">
+      <tr class="pb-2">
         <th scope="col" class="text-center"><i class="fa fa-music col-1" aria-hidden="true"></i></th>
-        <th scope="col">Nome</th>
-        <th scope="col">Album</th>
+        <th scope="col" class="h3 text-monospace font-weight-bold">Nome</th>
+        <th scope="col" class="h3 text-monospace font-weight-bold">Album</th>
       </tr>
     </thead>
+    <!-- Pesquisar por Artista -->
+    <div class="text-light pt-5 text-center pb-5">
+      <%= form_tag(songs_path, method: :get) do %>
+        <h2>Procurar por álbum : <%= text_field_tag(:search, params[:search], {class: "textoboxe"}) %><h2>
+        <h2><%= submit_tag ("Procurar"), :class => 'botao' %></h2>
+      <% end %>
+    </div>
     <tbody>
       <% @songs.each do |song| %>
         <tr>
@@ -21,10 +28,10 @@
               <td  class="text-center"><%= link_to "<i class='fa fa-heart-o'></i>".html_safe, favoritesongs_path(favorite:{song_id: song.id, listener_id: current_user.listener.id}), method: :post, style: 'color:black;'  %></td>
             <% end %>
           <% else %>
-            <td scope="row" class="text-center"><i class="fa fa-music" aria-hidden="true"></i></td>
+            <td scope="row" class="text-center"><i class="fa fa-music fa-lg" aria-hidden="true"></i></td>
           <% end %>
-          <td><%= link_to song.name, song_path(song), style: 'color:black;' %></td>
-          <td><%= link_to song.album.name, album_path(song.album), style: 'color:black;' %></td>
+          <td><h4><%= link_to song.name, song_path(song), style: 'color:black;' %></h4></td>
+          <td><h4><%= link_to song.album.name, album_path(song.album), style: 'color:black;' %></h4></td>
         </tr>
       <% end %>
     </tbody>

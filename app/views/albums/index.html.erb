@@ -35,7 +35,14 @@
   </div>
   <% else %>
   <!-- Caso for um ouvinte logado -->
-  <div class="row">
+    <!-- Pesquisar por Artista -->
+    <div class="text-light pt-5 text-center">
+      <%= form_tag(albums_path, method: :get) do %>
+        <h2>Procurar por artista : <%= text_field_tag(:search, params[:search], {class: "textoboxe"}) %><h2>
+        <h2><%= submit_tag ("Procurar"), :class => 'botao' %></h2>
+      <% end %>
+    </div>
+ <div class="row">
     <% @meudeus.each do |album| %>
     <div class="col-sm-4 col-md-3 col-lg-2 mt-5">
       <div class="card-deck">

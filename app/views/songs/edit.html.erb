@@ -7,8 +7,8 @@
                     <h2>Novo nome:</h2>
                     <h2><%= f.text_field :name, :class=> "textoboxe2" %></h2>
                     <h2>Explicito?: <%= f.check_box :explicit %></h2>
-                    <h2>Novo genero: <%= f.select :genre, options_for_select(@genres.map { |genre| [genre.name, genre.id]}), :class => 'textoboxe'  %></h2>
-                    <h2>Música:</h2> 
+                    <h2>Novo genero: <%= f.select(:genre, options_for_select(@genres.map { |genre| [genre.name, genre.id]}), {prompt: "Selecionar Gênero"}, { class: 'textoboxe2' })  %></h2>
+                    <h2>Música:</h2>
                     <h2 class="pb-3"><%= f.file_field :file, :class=> "textoboxe2" %></h2>
 
                     <%= f.submit 'Salvar alterações', :class => 'botao2' %>

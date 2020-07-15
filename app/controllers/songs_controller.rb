@@ -5,7 +5,7 @@ class SongsController < ApplicationController
 
     ##### SHOW #####
     def index
-        @songs = Song.all
+        @songs = Song.search(params[:search])
         @current_user = User.find(session["user_id"])
         @listener = @current_user.listener
         @favorites = FavoriteSong.where(listener_id: @listener)
@@ -81,6 +81,6 @@ class SongsController < ApplicationController
     # ADD IN A PRIVATE METHOD FOR SONG_PARAMS
     private
         def song_params
-            params.require(:song).permit(:name, :explicit, :album_id, :genre, :file)
+            params.require(:song).permit(:name, :explicit, :album_id, :genre, :file, :search)
         end
 end
