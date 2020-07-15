@@ -21,7 +21,7 @@
           <% end %>
           <div class="card-body">
             <h4 class="card-title"><%= link_to album.name, album_path(album), style: 'color:black' %></h4>
-            <p class="card-text">Algumas Músicas presente no album :
+            <p class="card-text">Músicas:
             <% Song.where(album_id: album.id).last(3).each do |sp| %>
                 <td scope="row"><i class="fa fa-music" aria-hidden="true"></i></td>
                 <td><%= sp.name %></td>
@@ -54,7 +54,7 @@
           <% end %>
           <div class="card-body">
             <h4 class="card-title"><%= link_to album.name, album_path(album), style: 'color:black' %></h4>
-            <p class="card-text">Algumas Músicas presente no album :
+            <p class="card-text">Músicas:
             <% Song.where(album_id: album.id).last(3).each do |sp| %>
                 <td scope="row"><i class="fa fa-music" aria-hidden="true"></i></td>
                 <td><%= sp.name %></td>
