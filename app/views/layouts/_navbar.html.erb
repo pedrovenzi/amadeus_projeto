@@ -12,32 +12,20 @@
             <div class="col my-auto">
               <div id="mainListDiv" class="main_list">
                 <ul class="navlinks">
-<<<<<<< HEAD
-                    <% if current_user %>
-                        <% if (current_user.role_id == 1) %>
-                            <li class="nav-item nav-link active"><%= link_to "Albums", albums_path%></li>
-                            <li class="nav-item nav-link active"><%= link_to "<i class='fa fa-sign-out'></i>".html_safe, logout_path, method: :delete%></li>
-                        <% else %>
-                            <li class="nav-item nav-link active"><%= link_to "Álbums", albums_path%></li>
-                            <li class="nav-item nav-link active"><%= link_to "Playlist", playlists_path%></li>
-                            <li class="nav-item nav-link active"><%= link_to "Favoritos", favoritesongs_path%></li>
-                            <li class="nav-item nav-link active"><%= link_to "<i class='fa fa-sign-out'></i>".html_safe, logout_path, method: :delete%></li>
-                        <% end %>
-=======
                   <% if current_user %>
-                    <% if (current_user.role_id == 1) %>
-                      <li class="nav-item nav-link active"><%= link_to "Albums", albums_path%></li>
-                      <li class="nav-item nav-link active"><%= link_to "Logout", logout_path, method: :delete%></li>
->>>>>>> develop
+                      <% if (current_user.role_id == 1) %>
+                          <li class="nav-item nav-link active"><%= link_to "Álbuns", albums_path%></li>
+                          <li class="nav-item nav-link active"><%= link_to "<i class='fa fa-sign-out'></i>".html_safe, logout_path, method: :delete%></li>
+                      <% else %>
+                          <li class="nav-item nav-link active"><%= link_to "Álbuns", albums_path%></li>
+                          <li class="nav-item nav-link active"><%= link_to "Playlists", playlists_path%></li>
+                          <li class="nav-item nav-link active"><%= link_to "Favoritos", favoritesongs_path%></li>
+                          <li class="nav-item nav-link active"><%= link_to "<i class='fa fa-sign-out'></i>".html_safe, logout_path, method: :delete%></li>
+                      <% end %>
                     <% else %>
-                      <li class="nav-item nav-link active"><%= link_to "Playlist", playlists_path%></li>
-                      <li class="nav-item nav-link active"><%= link_to "Favoritos", favoritesongs_path%></li>
-                      <li class="nav-item nav-link active"><%= link_to "Logout", logout_path, method: :delete%></li>
+                      <li><a href="/users/novo_usuario">Registrar</a></li>
+                      <li><a href="/auth/login">Log in</a></li>
                     <% end %>
-                  <% else %>
-                    <li><a href="/users/novo_usuario">Register</a></li>
-                    <li><a href="/auth/login">Log in</a></li>
-                  <% end %>
                 </ul>
               </div>
               <span class="navTrigger">
