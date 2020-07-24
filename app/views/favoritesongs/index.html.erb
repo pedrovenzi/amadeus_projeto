@@ -25,7 +25,7 @@
                 <tbody>
                 <% @favorites.each do |favorito| %>
                     <tr class="">
-                        <td scope="row" class="text-center"><%= link_to "<i class='fa fa-heart fa-lg'></i>".html_safe, favoritesong_path(favorito), method: :delete, style: 'color:white;' %></td>
+                        <td scope="row" class="text-center"><%= link_to "<i class='fa fa-heart fa-lg'></i>".html_safe, delete_favoritesong_path(favorito), method: :delete, style: 'color:white;' %></td>
                         <td><h4><%= favorito.song.name %></h4></td>
                         <td><h4><%= favorito.song.album.name %></h4></td>
                         <td><%= audio_tag (url_for(favorito.song.file)), controls: true, class:'song' %></td>

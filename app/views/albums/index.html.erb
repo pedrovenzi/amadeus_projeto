@@ -26,7 +26,7 @@
                 <td scope="row"><i class="fa fa-music" aria-hidden="true"></i></td>
                 <td><%= sp.name %></td>
               <% end %></p>
-            <p class="card-text"><%= link_to 'Remover Album', album_path(album), method: 'delete', data: { confirm: 'Você tem certeza?' }, style: 'color:black;'  %></p>
+            <p class="card-text"><%= link_to 'Remover Album', delete_album_path(album),  :method => :delete, data: { confirm: 'Você tem certeza?' }, style: 'color:black;'  %></p>
           </div>
         </div>
       </div>
