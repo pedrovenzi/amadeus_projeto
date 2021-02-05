@@ -5,7 +5,7 @@
     <% if @current_user.role_id == 1 %>
       <p><h2> <%= link_to "Novo Álbum", new_album_path, style: 'color:#FFFFFF;' %> </h2></p>
     <% end %>
-    <p><h2> <%= link_to "ir para as músicas", songs_path, style: 'color:#FFFFFF;' %> </h2></p>
+    <p><h2> <%= link_to "Ir para Músicas", songs_path, style: 'color:#FFFFFF;' %> </h2></p>
   </div>
   <!-- Caso for um artista logado -->
   <% if @current_user.role_id == 1 %>
@@ -21,12 +21,12 @@
           <% end %>
           <div class="card-body">
             <h4 class="card-title"><%= link_to album.name, album_path(album), style: 'color:black' %></h4>
-            <p class="card-text">Algumas Músicas presente no album :
+            <p class="card-text">Músicas:
             <% Song.where(album_id: album.id).last(3).each do |sp| %>
                 <td scope="row"><i class="fa fa-music" aria-hidden="true"></i></td>
                 <td><%= sp.name %></td>
               <% end %></p>
-            <p class="card-text"><%= link_to 'Remover Album', album_path(album), method: 'delete', data: { confirm: 'Você tem certeza?' }, style: 'color:black;'  %></p>
+            <p class="card-text"><%= link_to 'Remover Album', delete_album_path(album),  :method => :delete, data: { confirm: 'Você tem certeza?' }, style: 'color:black;'  %></p>
           </div>
         </div>
       </div>
@@ -54,7 +54,7 @@
           <% end %>
           <div class="card-body">
             <h4 class="card-title"><%= link_to album.name, album_path(album), style: 'color:black' %></h4>
-            <p class="card-text">Algumas Músicas presente no album :
+            <p class="card-text">Músicas:
             <% Song.where(album_id: album.id).last(3).each do |sp| %>
                 <td scope="row"><i class="fa fa-music" aria-hidden="true"></i></td>
                 <td><%= sp.name %></td>

@@ -23,7 +23,7 @@
         <tr>
           <% if @current_user.role_id == 2 %>
             <% if @favorites.where(song: song).present? %> 
-              <td  class="text-center"><%= link_to "<i class='fa fa-heart'></i>".html_safe, favoritesong_path(@favorites.where(song_id: song.id, listener_id: @listener).ids), method: 'delete', style: 'color:black;'  %></td>
+              <td  class="text-center"><%= link_to "<i class='fa fa-heart'></i>".html_safe, delete_favoritesong_path(@favorites.where(song_id: song.id, listener_id: @listener).ids), method: 'delete', style: 'color:black;'  %></td>
             <% else %>
               <td  class="text-center"><%= link_to "<i class='fa fa-heart-o'></i>".html_safe, favoritesongs_path(favorite:{song_id: song.id, listener_id: current_user.listener.id}), method: :post, style: 'color:black;'  %></td>
             <% end %>

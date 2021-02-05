@@ -7,7 +7,7 @@
         <% if @current_user.artist.id == @song.album.artist.id %>
             <%= button_to "Todas as músicas", songs_path, method: :get, :class=> "btn btn-outline-dark" %>
             <%= button_to "Editar música", edit_song_path(@song), method: :get, :class=> "btn btn-outline-dark" %>
-            <%= button_to 'remover música', song_path(@song), method: 'delete', data: { confirm: 'Você tem certeza?' }, :class=> "btn btn-outline-dark" %>
+            <%= button_to 'remover música', delete_song_path(@song), method: 'delete', data: { confirm: 'Você tem certeza?' }, :class=> "btn btn-outline-dark" %>
         <% end %>
     <% end %>
 </div>

@@ -2,16 +2,26 @@
 <html>
   <head>
     <title>AmadeusProjeto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application.js', "https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js" %>
+
   </head>
 
   <body>
+
+  <% #NAVBAR SEM FUNDO NA HOMEPAGE %>
+  <% if content_for? :nav %>
+    <%= content_for :nav %>
+  <% else %>
     <%= render 'layouts/navbar' %>
-    <%= yield %>
+  <% end %>
+
+  <%= yield %>
 
 
   </body>

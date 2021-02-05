@@ -1,11 +1,11 @@
-<div class="favoritos pt-5 text-monospace">
+<div class="favoritos pt-5">
     <div class="espaco1"></div>
     <!-- Album/Artista -->
-    <div class="container text-monospace text-light p-4">
+    <div class="container text-light p-4">
         <div class="row">
             <div class="col text-center" >
-                <h2>Bem Vindo as suas músicas favoritas</h2>
-                <h1 class="font-weight-bold"><%= @listener.user.name %></h1>
+                <h2>Bem-vindo às suas músicas favoritas,</h2>
+                <h1 class="font-weight-bold"><%= @listener.user.name %>!</h1>
             </div>
         </div>
     </div>
@@ -25,7 +25,7 @@
                 <tbody>
                 <% @favorites.each do |favorito| %>
                     <tr class="">
-                        <td scope="row" class="text-center"><%= link_to "<i class='fa fa-heart fa-lg'></i>".html_safe, favoritesong_path(favorito), method: :delete, style: 'color:white;' %></td>
+                        <td scope="row" class="text-center"><%= link_to "<i class='fa fa-heart fa-lg'></i>".html_safe, delete_favoritesong_path(favorito), method: :delete, style: 'color:white;' %></td>
                         <td><h4><%= favorito.song.name %></h4></td>
                         <td><h4><%= favorito.song.album.name %></h4></td>
                         <td><%= audio_tag (url_for(favorito.song.file)), controls: true, class:'song' %></td>

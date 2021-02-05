@@ -19,7 +19,7 @@
                 <% if @current_user.role_id == 1 %>
                     <% if @current_user.artist.id == @album.artist.id %>
                         <%= button_to "Editar  Album", edit_album_path(@album), method: :get, class: 'btn btn-outline-light btn-lg'  %>
-                        <%= button_to 'Remover Album', album_path(@album), method: 'delete', data: { confirm: 'Você tem certeza?' }, class: 'btn btn-outline-light btn-lg'  %>
+                        <%= button_to 'Remover Album', delete_album_path(@album), method: 'delete', data: { confirm: 'Você tem certeza?' }, class: 'btn btn-outline-light btn-lg'  %>
                     <% end %>
                 <% end %>
             </div>
@@ -62,7 +62,7 @@
                             <td> <%= audio_tag (url_for(sp.file)), controls: true, class: 'song' %></td>
                             <% if @current_user.artist.id == @album.artist.id %>
                                 <td><%= link_to "<i class='fa fa-pencil fa-lg'></i>".html_safe, edit_song_path(sp), method: :get, class: 'btn btn-outline-light icon' %></td>
-                                <td><%= link_to "<i class='fa fa-trash-o fa-lg'></i>".html_safe, song_path(sp), method: 'delete', data: { confirm: 'Você tem certeza que quer apagar essa música?'}, class: 'btn btn-outline-light icon' %></td>
+                                <td><%= link_to "<i class='fa fa-trash-o fa-lg'></i>".html_safe, delete_song_path(sp), method: 'delete', data: { confirm: 'Você tem certeza que quer apagar essa música?'}, class: 'btn btn-outline-light icon' %></td>
                             <% end %>
                         <% end %>
                     </tr>

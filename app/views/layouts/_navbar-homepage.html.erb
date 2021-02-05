@@ -1,0 +1,45 @@
+<nav class="nav">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-3 my-auto">
+              <div class="logo">
+                <a href="/"><img src="https://cdn.discordapp.com/attachments/722509731922575421/722522725624840192/amadeus_a_transparente.png" width="145px"/></a>
+              </div>
+            </div>
+
+            <div class="col-4"></div>
+
+            <div class="col my-auto">
+              <div id="mainListDiv" class="main_list">
+                <ul class="navlinks">
+                  <% if current_user %>
+                    <% if (current_user.role_id == 1) %>
+                      <li class="nav-item nav-link active"><%= link_to "Álbuns", albums_path%></li>
+                      <li class="nav-item nav-link active"><%= link_to "<i class='fa fa-sign-out'></i>".html_safe, logout_path, method: :delete%></li>
+                    <% else %>
+                      <li class="nav-item nav-link active"><%= link_to "Álbuns", albums_path%></li>
+                      <li class="nav-item nav-link active"><%= link_to "Playlists", playlists_path%></li>
+                      <li class="nav-item nav-link active"><%= link_to "Favoritos", favoritesongs_path%></li>
+                      <li class="nav-item nav-link active"><%= link_to "<i class='fa fa-sign-out'></i>".html_safe, logout_path, method: :delete%></li>
+                    <% end %>
+                  <% else %>
+                    <li><a href="/users/novo_usuario">Registrar</a></li>
+                    <li><a href="/auth/login">Log in</a></li>
+                  <% end %>
+                </ul>
+              </div>
+              <span class="navTrigger">
+                <i></i>
+                <i></i>
+                <i></i>
+              </span>
+            </div>
+          </div>
+
+        </div>
+    </nav>
+
+<!-- Jquery needed -->
+	<script src="js/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>

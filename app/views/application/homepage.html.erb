@@ -1,43 +1,84 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
+<script>
+    var scroll = new SmoothScroll('a[href*="#"]', {
+        speed: 800
+    });
+</script>
 <body>
-<div class="container-flex">
-  <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="4500">
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
+<style>
+  body {
+    overflow: hidden;
+    height: 100vh;
+  }
+</style>
 
-      <div class="item active">
-        <img class="d-block w-100" src="/assets/home1.jpg" alt="Moutain">
-        <div class="carousel-caption d-none d-md-block">
-          <h5 class="display-4">Bom Dia!</h5>
-          <p class="lead">Projeto Amadeus primero slide</p>
-        </div>
-      </div>
+<% content_for :nav, render('layouts/navbar-homepage') %>
+<%= render 'layouts/infobar' %>
 
-      <div class="item">
-        <img class="d-block w-100" src="/assets/album.jpg" alt="Darth Vader">
-        <div class="carousel-caption d-none d-md-block">
-          <h5 class="display-4">caralho darth vader</h5>
-          <p class="lead">ta brabo apenas</p>
-        </div>
-      </div>
+<div class="container-fluid">
 
-      <div class="item">
-        <img class="d-block w-100" src="/assets/home2.jpg" alt="Sunrise">
-        <div class="carousel-caption d-none d-md-block">
-          <h5 class="display-4">tá funcionando</h5>
-          <p class="lead">tá funcinando essa porra</p>
+  <section id="video">
+    <div class="video-background">
+      <div class="video-wrap">
+        <div id="video">
+          <video id="bgvid" autoplay loop muted playsinline>
+            <source src="<%=video_path "firewatch-ambience.mp4"%>" type="video/mp4">
+            <!-- src="video_path "firewatch-ambience.mp4"%>" https://r4---sn-bg07dnz7.googlevideo.com/videoplayback?expire=1594261858&ei=Ai0GX424J4SUyQWph5PICA&ip=77.243.119.51&id=o-AONHlLYQOuc2LzA7i7YxBMt_Qrc5EAAGtu5URi5NM36c&itag=137&aitags=133%2C134%2C135%2C136%2C137%2C160%2C242%2C243%2C244%2C247%2C248%2C278&source=youtube&requiressl=yes&vprv=1&mime=video%2Fmp4&gir=yes&clen=73966744&dur=221.566&lmt=1455506348416294&fvip=4&keepalive=yes&c=WEB&sparams=expire%2Cei%2Cip%2Cid%2Caitags%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AOq0QJ8wRAIgEul4ukNzCIhckxy8kLlu6KHz0IvFLZxTTk-0Sq2ooZUCIHrMWF0c_u8VZo5I2KkfuD6lfDriTvoBAHsT2hXY5m6J&video_id=2vEO27QMl7g&title=Other+Places-+Shoshone+National+Forest+%28Firewatch%29&rm=sn-pgxo-p3ue7l&req_id=717eac8e5f28a3ee&redirect_counter=2&cm2rm=sn-n8vrs7z&cms_redirect=yes&mh=xw&mip=2804:14c:658c:4722:2578:bf9:a47c:8c20&mm=34&mn=sn-bg07dnz7&ms=ltu&mt=1594240226&mv=m&mvi=4&pl=48&lsparams=mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRQIhAOpL-DvLeo9FpEa5hmP_vy5ElbAsirEXMYAlwEFO4ZcyAiAk_OU9REiNcwNEW0qz1zHPGZrIiNBiJxuHzoXsV0wFlQ%3D%3D -->
+          </video>
         </div>
       </div>
     </div>
 
-  </div>
+    <div class="caption text-center">
+      <h1>PROJETO AMADEUS</h1>
+      <h3>O pináculo do Streaming Independente.</h3>
+      <h5>Seja bem-vindo!</h5>
+    </div>
+
+  </section>
+
+  <section id="sobre">
+    <div class="container-fluid">
+      <div class="row justify-content-center h-100">
+        <div class="col"></div>
+        <div class="col-12 col-sm-7 m-auto">
+          <p style="color:#FFFFFF">Amadeus, ou como carinhosamente gostamos de chamar "Por que diabos isso deu erro", é um projeto de streaming proposto pela empresa júnior Struct e implementada por três jovens pessoas que um dia odiariam o Rails. O projeto tem como princípio ser visualmente bonito com um toque de minimalismo, ser totalmente funcional e agradável de ser utilizado pelos usuários.
+
+            Um dos pontos abordados no projeto foi o trabalho em equipe, e apesar de um dos integrantes ter sido expulso (Kayran), contornamos todas as adversidades e soubemos ajudar uns aos outros.
+
+          O projeto se encontra em: <a style="color: blueviolet">https://github.com/pedrovenzi/amadeus_projeto</a></p>
+        </div>
+        <div class="col-12 col-sm-4 m-auto">
+          <h1 style="color: #FFFFFF;">SOBRE O PROJETO</h1>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="equipe">
+    <div class="card-container row">
+      <div class="col-12 col-sm-3"><h1 style="color: #FFFFFF;">CONHEÇA A EQUIPE</h1></div>
+
+        <div class="col-12 col-sm-3" id="card1">
+          <%= render "layouts/cards/pedro" %>
+        </div>
+
+        <div class="col-12 col-sm-3" id="card2">
+          <%= render "layouts/cards/edu" %>
+        </div>
+
+        <div class="col-12 col-sm-3" id="card3">
+          <%= render "layouts/cards/kayran" %>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
 </div>
 
 </body>

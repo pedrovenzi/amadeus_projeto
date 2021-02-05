@@ -16,7 +16,7 @@
 
         <td class="col"><button class="btn btn-outline-dark btn-lg", id="edit-playlist_<%= playlist.id %>">Editar</button></td>
 
-        <td class=""><%= link_to 'Remover', playlist_path(playlist), method: 'delete', data: { confirm: 'Você tem certeza?' }, :class=>'btn btn-outline-dark btn-lg' %></td>
+        <td class=""><%= link_to 'Remover', delete_playlist_path(playlist), method: 'delete', data: { confirm: 'Você tem certeza?' }, :class=>'btn btn-outline-dark btn-lg' %></td>
     <% end %>
   </table>
   </div>
